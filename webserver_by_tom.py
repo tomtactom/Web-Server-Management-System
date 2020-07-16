@@ -47,6 +47,8 @@ if 'apache2' in os.listdir('/etc/') or 'php' in os.listdir('/etc/'):
         print('Unfortunately the program cannot be installed')
         quit()
 
+
+
 # Apache, PHP, MySQL (MariaDB) und Certbot (letsencrypt) installieren
 os.system('sudo apt install apache2 -y')
 os.system('sudo apt install php7.3 php7.3-mysql php7.3-curl php7.3-gd php7.3-zip php7.3-fpm php7.3-cli php7.3-opcache php7.3-json php7.3-mbstring php7.3-xml libapache2-mod-php7.3 php-common -y')

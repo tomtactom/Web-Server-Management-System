@@ -9,5 +9,5 @@ os.system('sudo pip install urllib')
 os.system('sudo pip install string')
 os.system('sudo pip install random')
 os.system('sudo pip install shutil')
-with open('username.txt', 'w') as file:
-    file.write(str(os.system('whoami')))
+#with open('username.txt', 'w') as file:
+#    file.write(str(os.system('whoami')))
