@@ -46,7 +46,7 @@ Dieses Script ist durch seine geringe Sicherheit nicht für wichtige öffentlich
 * 0.1.1
     * CHANGE: Instructions to allow the user www-data via visudo sudo rights
     * ADD: Credit information
-		* 0.2.0
+* 0.2.0
 		* CHANGE: Works on more Linux systems
 		* CHANGE: files optimized
 		* CHANGE: bug fix
