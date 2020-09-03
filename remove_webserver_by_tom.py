@@ -47,6 +47,19 @@ if delete_www == True:
     os.system('sudo rm -R /var/www')
 
 os.system('sudo apt purge letsencrypt certbot -y')
-os.system('sudo rm /var/spool/cron/crontabs/pi')
-print('The system has been completely uninstalled')
+os.system('sudo rm /var/spool/cron/crontabs/www-data')
 
+# remove Services
+for service_name in os.listdir('/var/python/'):
+	if os.path.isdir('/var/python/'):
+		# Autostart entfernen
+		if os.path.isfile('/etc/init.d/' + service_name + '.autostart'):
+			os.system('sudo update-rc.d -f ' + service_name + '.autostart remove')
+			os.remove('/etc/init.d/' + service_name + '.autostart')
+
+		os.system('sudo service ' + service_name + 'stop')
+		os.remove('/lib/systemd/system/' + service_name + '.service')
+
+os.system('sudo rm -R /var/python/')
+
+print('The system has been completely uninstalled')

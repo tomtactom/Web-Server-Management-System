@@ -1,0 +1,186 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 13px;
+}
+
+article {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+article section {
+	max-width: 100%;
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+article section#domains {
+	width: 470px;
+}
+
+article section#domains section {
+	border: 1px solid #bebebe;
+	background: #fafafa;
+	margin-bottom: 10px;
+}
+article section#domains section div {
+	padding: 5px;
+}
+
+article section#domains section div.header {
+	padding: 8px 0 12px 18px;
+	width: inherit;
+	background-color: #38ada9;
+	color: #fff;
+}
+
+article section#domains section div.header h1 {
+	font-size: 1.4rem;
+}
+
+article section#domains section div.header h1 a {
+	color: #fff;
+}
+
+article section#domains section div {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+article section#domains section div span.header_item,
+article section#main_section div span.backup_item,
+article section#main_section details,
+span.list_element {
+	margin: 6px 27px 0 17px;
+}
+
+article section#domains section div.third_header span.header_item {
+	margin-right: 0;
+}
+
+article section#main {
+	width: 1000px;
+}
+
+article section#databases {
+	width: 300px;
+}
+
+a {
+	text-decoration: none;
+	color: #38ada9;
+}
+
+.prohibited_link {
+	color: #224545;
+	cursor: no-drop;
+	transition: all 500ms ease-in-out;
+}
+
+.prohibited_link:hover {
+	text-decoration: line-through;
+}
+
+form {
+	padding: 19px;
+	background-color: #7ed6df;
+	border-radius: 1.5px;
+	max-width: max-content;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form.unset {
+	padding: 0;
+	background-color: unset;
+	border-radius: unset;
+	display: unset;
+	margin: 0;
+}
+
+form.db_logout {
+	position: relative;
+	top: -55px;
+	left: 95px;
+}
+
+form#newsubdomain {
+	max-width: 100%;
+}
+
+label {
+	display: block;
+}
+
+label[for="inputRedirect"] {
+	cursor: pointer;
+}
+
+input,
+button {
+	padding: 8px 6px 8px 4px;
+	border: 2px solid #95afc0;
+	border-radius: 1.5px;
+	margin: 5px;
+}
+input[type=text],
+input[type=email] {
+	width: 100%;
+}
+
+button {
+	border: none;
+	border-radius: 1px;
+	background-color: #fafafa;
+	color: #323232;
+	cursor: pointer;
+	font-size: 1.1rem;
+}
+
+code {
+	color: #fff;
+	font-family: Source Code Pro, Consolas, Inconsolata-g, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	background-color: #272822;
+	border: solid 0.5px #272822;
+	border-radius: 1px;
+	display: block;
+	padding: 5px 5px 5px 5px;
+}
+
+details.database_details form input {
+	width: unset;
+}
+
+details.database_details,
+details.config_password_details {
+	color: #38ada9;
+	cursor: pointer;
+}
+
+details.database_details summary,
+details.config_password_details summary {
+	margin-bottom: 8px;
+}
+
+details.database_details form:first-of-type,
+details.config_password_details form {
+	padding: 12px;
+}
+
+.message {
+    margin: 15px 10px;;
+    padding: 10px;
+    background-color: #3f7878;
+    color: #ffffff;
+    border-radius: 1.5px;
+		font-size: 1.3rem;
+		max-width: max-content;
+}
