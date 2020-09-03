@@ -47,14 +47,14 @@ Dieses Script ist durch seine geringe Sicherheit nicht für wichtige öffentlich
     * CHANGE: Instructions to allow the user www-data via visudo sudo rights
     * ADD: Credit information
 * 0.2.0
-		* CHANGE: Works on more Linux systems
-		* CHANGE: files optimized
-		* CHANGE: bug fix
-		* ADD: Python services added
-		* CHANGE: Add all possible domains
-		* CHANGE: Optimized for static IPs
-		* ADD: clone directly from GitHub
-		* ADD: Webhook link management
+    * CHANGE: Works on more Linux systems
+    * CHANGE: files optimized
+    * CHANGE: bug fix
+    * ADD: Python services added
+    * CHANGE: Add all possible domains
+    * CHANGE: Optimized for static IPs
+    * ADD: clone directly from GitHub
+    * ADD: Webhook link management
 
 ## Meta
 
