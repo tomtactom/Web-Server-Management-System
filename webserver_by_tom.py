@@ -120,10 +120,10 @@ with open(root_path + '.htaccess', 'w') as file:
 # config Subdomain anlegen
 os.system('sudo python3 /etc/apache2/new_domain.py config.' + domainname + ' ' + mail + ' true')
 
-# Inhalt aus config_site in den httpd Ordner der config Subdomain entpacken
-for i in os.listdir('./config_site/'):
+# Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
+for i in os.listdir('./httpd/'):
 	if not i == '.' or not i == '..':
-		copyfile('./config_site/' + i, '/var/www/config.' + domainname + '/httpd/')
+		copyfile('./httpd/' + i, '/var/www/config.' + domainname + '/httpd/')
 
 os.system('sudo a2enmod auth_basic')
 os.system('sudo a2enmod auth_digest')

@@ -5,7 +5,7 @@ Hiermit kannst du in Kombination mit einem Dynamischen DNS Service deinen Linux 
 
 ## Installation
 
-Debian; Rasperian, Kali etc.:
+Debian; Raspbian, Kali etc.:
 
 The email address is used by letsencrypt
 
