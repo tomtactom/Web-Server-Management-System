@@ -27,7 +27,7 @@ else:
     mail = sys.argv[2]
 
 # Überprüfe ob config_sample vorhanden ist
-if not 'config_site' in os.listdir('./'):
+if not 'httpd' in os.listdir('./'):
     print('The directory "config_sample" is missing. Please make sure that it is in the same directory as this file.')
     quit()
 
@@ -56,7 +56,7 @@ os.system('sudo apt install certbot letsencrypt python-certbot-apache -y')
 # Kopiere die Python-Dateien in den apache Ordner
 for i in os.listdir('./python_scripts/'):
 	if not i == '.' or not i == '..':
-		copyfile('./python_scripts/' + i, '/etc/apache2/')
+		copyfile('./python_scripts/' + i, '/etc/apache2/' + i)
 
 # Lege die Hauptdomain an.
 os.system('sudo python3 /etc/apache2/new_domain.py ' + domainname + ' ' + mail + ' true')

@@ -20,16 +20,14 @@ Else If you have a static IP and a Domain:
 	You can use your Domain. You must open your Ports 80 and 443 at your Router and your Server.
 
 ```sh
-sudo update && sudo upgrade -your
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 sudo apt install git
 sudo apt purge apache*
 sudo apt purge php*
 sudo apt purge mysql*
 sudo apt purge letsencrypt* certbot*
 sudo rm -R /etc/apache2
-mkdir webserververwaltungsystem
-cd ./webserververwaltungsystem
-git https://github.com/12tom12/webserververwaltungsystem.git
+git clone https://github.com/12tom12/webserververwaltungsystem.git
 sudo python3 webserver_by_tom.py YOURDOMAINNAME mail@example.com
 ```
 Follow the setup instruction
