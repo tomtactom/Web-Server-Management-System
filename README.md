@@ -1,6 +1,6 @@
-# Webserver Verwaltungssystem
-> Ein Webserver Verwaltungssystem für deinen Homeserver (z. B. Raspberry Pi). Erstelle Subdomains, nutze Apache, PHP, MySQL, PhpMyAdmin, Certbot/Letsencrypt, GitHub + Webhook-Link & Python-Dienste vollautomatisch.
-
+# Web Server Management System
+> Ein Webserver Verwaltungssystem für deinen Homeserver (z. B. Raspberry Pi). Erstelle Subdomains, nutze Apache, PHP, MySQL, PhpMyAdmin, Certbot/Letsencrypt, GitHub + Webhook-Link & Python-Dienste vollautomatisch. Egal ob Statische oder Dynamische IP.
+![](https://repository-images.githubusercontent.com/242197618/84720600-f616-11ea-83d6-a143e05564cc)
 Hiermit kannst du in Kombination mit einem Dynamischen DNS Service deinen Linux Server als Webserver von zu Hause aus laufen lassen.
 
 ## Installation
