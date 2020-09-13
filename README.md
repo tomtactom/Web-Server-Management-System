@@ -29,8 +29,8 @@ sudo apt purge php*
 sudo apt purge mysql*
 sudo apt purge letsencrypt* certbot*
 sudo rm -R /etc/apache2
-git clone https://github.com/12tom12/webserververwaltungsystem.git
-sudo python3 webserver_by_tom.py YOURDOMAINNAME mail@example.com
+git clone https://github.com/12tom12/web-server-management-system.git
+sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
 Follow the setup instruction
 
