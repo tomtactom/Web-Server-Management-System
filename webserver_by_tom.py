@@ -121,7 +121,7 @@ with open(root_path + '.htaccess', 'w') as file:
 os.system('sudo python3 /etc/apache2/new_domain.py config.' + domainname + ' ' + mail + ' true')
 
 # Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
-os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/httpd/')
+os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
 
 os.system('sudo a2enmod auth_basic')
 os.system('sudo a2enmod auth_digest')
