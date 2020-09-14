@@ -42,10 +42,23 @@ sudo apt purge php*
 sudo apt purge mysql*
 sudo apt purge letsencrypt* certbot*
 sudo rm -R /etc/apache2
-git clone https://github.com/12tom12/web-server-management-system.git
+```
+
+Für die Release-Version (Stabil, allerdings nicht die neuste)(empfohlen)
+```sh
+wget https://github.com/12tom12/web-server-management-system/releases/download/0.2.1/web-server-management-system-master-0.2.1.zip
+unzip web-server-management-system-master-0.2.1.zip
+rm web-server-management-system-master-0.2.1.zip
+cd ./web-server-management-system-master
+sudo python3 webserver_by_tom.py example.com mail@example.com
+```
+
+Für die Beta-Version (Instabil, allerdings immer die neuste)
+```sh
 cd ./web-server-management-system
 sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
+
 Es müssen manuell noch einige Einstellungen während der Installation vorgenommen werden (z. B. Passwort Eingabe usw.).
 
 Wenn alles installiert wurde, gehe auf [config.example.com](https://config.example.com) und gebe das Passwort "start" ein.
