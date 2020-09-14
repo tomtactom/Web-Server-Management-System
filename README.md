@@ -49,14 +49,14 @@ Für die Release-Version (Stabil, allerdings nicht die neuste)(empfohlen)
 wget https://github.com/12tom12/web-server-management-system/releases/download/0.2.1/web-server-management-system-master-0.2.1.zip
 unzip web-server-management-system-master-0.2.1.zip
 rm web-server-management-system-master-0.2.1.zip
-cd ./web-server-management-system-master
+cd ./Web-Server-Management-System-master
 sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
 
 Für die Beta-Version (Instabil, allerdings immer die neuste)
 ```sh
 git clone https://github.com/12tom12/Web-Server-Management-System.git
-cd ./web-server-management-system
+cd ./Web-Server-Management-System
 sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
 
