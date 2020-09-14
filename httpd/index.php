@@ -177,7 +177,7 @@ if (is_dir($service_verzeichnis)) {
 												<small><i>Webhok Link kopieren und Einstellungen öffnen</i></small>
 											</a>
 											<?php
-										} 
+										}
 									} else {
 								?>
 								<form method="post">

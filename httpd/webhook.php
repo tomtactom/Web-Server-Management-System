@@ -16,10 +16,11 @@ if (is_dir($verzeichnis)) {
     while (($file = readdir($handle)) !== false) {
       if ($file != '.' && $file != '..') {
       $subdomain_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
-      if($subdomain_data[0]) {
+      if($subdomain_data[1]) {
         if(is_dir($verzeichnis.'/'.$subdomain_data[1].'/'.$docs.'/.git')) {
             $key = hash('sha512', file_get_contents($verzeichnis.'/'.$subdomain_data[1].'/.data.csv'));
             if(isset($_GET[$key])) {
+              echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
               echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master');
               echo shell_exec('chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs);
             } else {
