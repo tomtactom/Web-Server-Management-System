@@ -5,11 +5,11 @@
 Hiermit kannst du in Kombination mit einem Dynamischen DNS Service oder einer Domain + Statischen IP deinen Linux Server als Webserver von zu Hause aus laufen lassen.
 
 ## Voraussetzungen
-• Deutsch Kenntnisse, da das gesamte System auf Deutsch läuft. (Knowledge of German, as the entire system runs in German.)
-• Ein internetfähiger Linuxbasierter Computer + Root Rechte (Am besten mit Debian o. ä.)
-• Zugriff auf die Router Einstellungen (Ein Router wie FRITZ!Box oder Speedport wird benötigt.)
-• Python, PHP & GitHub Kenntnisse (optional)
-• Kenntnisse im Umgang mit der Shell Konsole & grundlegende Erfahrung in der Webentwicklung
+* Deutsch Kenntnisse, da das gesamte System auf Deutsch läuft. (Knowledge of German, as the entire system runs in German.)
+* Ein internetfähiger Linuxbasierter Computer + Root Rechte (Am besten mit Debian o. ä.)
+* Zugriff auf die Router Einstellungen (Ein Router wie FRITZ!Box oder Speedport wird benötigt.)
+* Python, PHP & GitHub Kenntnisse (optional)
+* Kenntnisse im Umgang mit der Shell Konsole & grundlegende Erfahrung in der Webentwicklung
 
 ## Installation
 
@@ -18,21 +18,21 @@ Für alle auf Debian basierenden Systeme:
 Die E-Mail-Adresse wird für Let's Encrypt benötigt
 
 Wenn du eine Dynamische IP und keinen Dynamischen DNS Service hast (Wenn du nicht weißt worum es geht, nehme diese Option):
-	• Du kannst [ddnss.de](https://ddnss.de/) benutzen
-	• Erstelle dir dort einen Account
-	• Registriere dir eine dynamische Domain. Z. B. [example.ddnss.de](http://example.ddnss.de/)
-	• Wichtig: Setze auf der Seite [ddnss.de/ua/vhosts_list.php](https://ddnss.de/ua/vhosts_list.php) bei der Checkbox "Wildcard :" einen Haken.
-	• Richte die dynamische DNS bei deinem Router ein (z. B. Fritz!Box). Eine entsprechende Anleitung findest du auf [ddnss.de/ua/help.php](https://ddnss.de/ua/help.php).
-	• Leite alle Anfragen über die Domain für die Ports 80 und 443 an deinen Server weiter. (Portfreigabe)
-	Stelle sicher, dass alles Funktioniert. Es gibt keine automatische Überprüfung mehr.
+* Du kannst [ddnss.de](https://ddnss.de/) benutzen
+* Erstelle dir dort einen Account
+* Registriere dir eine dynamische Domain. Z. B. [example.ddnss.de](http://example.ddnss.de/)
+* Wichtig: Setze auf der Seite [ddnss.de/ua/vhosts_list.php](https://ddnss.de/ua/vhosts_list.php) bei der Checkbox "Wildcard :" einen Haken.
+* Richte die dynamische DNS bei deinem Router ein (z. B. Fritz!Box). Eine entsprechende Anleitung findest du auf [ddnss.de/ua/help.php](https://ddnss.de/ua/help.php).
+* Leite alle Anfragen über die Domain für die Ports 80 und 443 an deinen Server weiter. (Portfreigabe)
+Stelle sicher, dass alles Funktioniert. Es gibt keine automatische Überprüfung mehr.
 
 Wenn du eine statische IP und eine Domain hast:
-	• Richte einen A-Type für deine Domain auf die Statische IP ein, die auf das Netzwerk von dem Server angemeldet ist.
-	• Wichte einen Wildcard Eintrag für deine Domain ein.
-	• Sollte dies nicht gehen, musst du mindestens die Subdomains config.* und phpmyadmin.* einrichten.
-	• Beim Erstellen neuer Subdomains, muss die Konfiguration bei den DNS-Einstellungen manuell vorgenommen werden
-	• Leite alle Anfragen über die Domain für die Ports 80 und 443 an deinen Server weiter. (Portfreigabe)
-	Stelle sicher, dass alles Funktioniert. Es gibt keine automatische Überprüfung mehr.
+* Richte einen A-Type für deine Domain auf die Statische IP ein, die auf das Netzwerk von dem Server angemeldet ist.
+* Wichte einen Wildcard Eintrag für deine Domain ein.
+* Sollte dies nicht gehen, musst du mindestens die Subdomains config.* und phpmyadmin.* einrichten.
+* Beim Erstellen neuer Subdomains, muss die Konfiguration bei den DNS-Einstellungen manuell vorgenommen werden
+* Leite alle Anfragen über die Domain für die Ports 80 und 443 an deinen Server weiter. (Portfreigabe)
+Stelle sicher, dass alles Funktioniert. Es gibt keine automatische Überprüfung mehr.
 
 ```sh
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
@@ -52,9 +52,9 @@ Es müssen manuell noch einige Einstellungen während der Installation vorgenomm
 ## Anwendungsbeispiele
 
 Dieses Script ist durch seine geringe Sicherheit nicht für wichtige öffentliche Projekte gedacht, sondern zum privaten Entwickeln.
-• Webserver zum Ausprobieren
-• Python Scripte mit Webseiten verknüpfen
-• Webentwicklung lernen
+* Webserver zum Ausprobieren
+* Python Scripte mit Webseiten verknüpfen
+* Webentwicklung lernen
 
 ## Release History
 
