@@ -27,23 +27,6 @@
 									<span class="header_item ssl_email"><strong>SSL E-Mail-Adresse: </strong><a href="mailto:<?php echo $subdomain_data[2]; ?>?subject=Information%20wegen%20der%20Webseite:%20<?php echo trim($file); ?>&body=Hallo,%20%0D%0A%0D%0A" rel="mail" alt="send e-mail to subdomainowner" title="Sende dem Inhaber der Subdomain eine E-Mail, um ihn gegebenenfalls zu informieren, falls sich etwas an seiner Subdomain ändert."><?php echo $subdomain_data[2]; ?></a></span><br>
 									<span class="header_item github"><strong>GitHub: </strong>
 										<?php
-											if (isset($_POST['repository_button'])) {
-												if(isset($_POST['repository'])) {
-													$headers = @get_headers($_POST['repository']);
-													if($headers && strpos( $headers[0], '200')) {
-														shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].' ; git clone '.trim($_POST['repository']));
-														shell_exec('sudo rm -R httpd');
-														shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1]);
-														$repository_name = array_reverse(explode("/", str_replace('.git', '', trim($_POST['repository']))))[0];
-														rename($verzeichnis.'/'.$subdomain_data[1].'/'.$repository_name, $verzeichnis.'/'.$subdomain_data[1].'/httpd');
-														shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1]);
-														$status = "Das Repository wurde geklont.";
-													}
-													else {
-														$status = "Leider wurde das Repository nicht gefunden";
-													}
-												}
-											}
 											if (count(scandir($verzeichnis.'/'.$subdomain_data[1].'/httpd')) > 2) {
 												if (!is_dir($verzeichnis.'/'.$subdomain_data[1].'/httpd/.git')) {
 													echo 'Das Verzeichnis ist nicht leer.';
@@ -79,6 +62,7 @@
 											<label for="inputRepository">
 												<input type="text" name="repository" id="inputRepository" title="Trage hier ein Repository von der Plattform GitHub ein, um es zu klonen." alt="github repository" placeholder="https://github.com/nutzername/repository-name" maxlength="255" autocomplete="off" required>
 											</label>
+											<input type="hidden" name="domain_name" value="<?php echo $subdomain_data[1]; ?>">
 											<button type="submit" name="repository_button" title="Stelle eine Verbindung zum Repository her.">Klonen</button>
 										</form>
 										<?php

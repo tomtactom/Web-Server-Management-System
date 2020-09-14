@@ -384,6 +384,25 @@ $password = "'.trim($_POST['password']).'";
       $msg = 'Der Inhalt und Service wurde unwiderruflich gelöscht';
   }
 
+  // Von GitHub klonen
+  if (isset($_POST['repository_button'])) {
+    if(isset($_POST['repository']) && isset($_POST['domain_name'])) {
+      $headers = @get_headers($_POST['repository']);
+      if($headers && strpos( $headers[0], '200')) {
+        shell_exec('cd '.$verzeichnis.'/'.$_POST['domain_name'].' ; git clone '.trim($_POST['repository']));
+        shell_exec('sudo rm -R httpd');
+        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$_POST['domain_name']);
+        $repository_name = array_reverse(explode("/", str_replace('.git', '', trim($_POST['repository']))))[0];
+        rename($verzeichnis.'/'.$_POST['domain_name'].'/'.$repository_name, $verzeichnis.'/'.$_POST['domain_name'].'/httpd');
+        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$_POST['domain_name']);
+        $status = "Das Repository wurde geklont.";
+      }
+      else {
+        $status = "Leider wurde das Repository nicht gefunden";
+      }
+    }
+  }
+
   // Nachricht die in Cookie an die nächste Seite übermittelt wurde in $msg abspeichern
   if(!empty($_COOKIE['msg'])) {
     $msg = trim($_COOKIE['msg']);
