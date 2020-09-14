@@ -55,6 +55,7 @@ sudo python3 webserver_by_tom.py example.com mail@example.com
 
 Für die Beta-Version (Instabil, allerdings immer die neuste)
 ```sh
+git clone https://github.com/12tom12/Web-Server-Management-System.git
 cd ./web-server-management-system
 sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
