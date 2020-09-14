@@ -48,6 +48,8 @@ sudo python3 webserver_by_tom.py example.com mail@example.com
 ```
 Es müssen manuell noch einige Einstellungen während der Installation vorgenommen werden (z. B. Passwort Eingabe usw.).
 
+Wenn alles installiert wurde, gehe auf [config.example.com](https://config.example.com) und gebe das Passwort "start" ein.
+
 
 ## Anwendungsbeispiele
 
