@@ -158,6 +158,7 @@ if update_system == False: # Nur wenn config Subdomain noch nicht existiert
     # config Subdomain anlegen
     os.system('sudo python3 /etc/apache2/new_domain.py config.' + domainname + ' ' + mail + ' true')
 
+print(domainname)
 # Auch als Update
 # Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
 os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
