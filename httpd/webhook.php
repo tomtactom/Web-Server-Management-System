@@ -23,12 +23,6 @@ if (is_dir($verzeichnis)) {
               echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
               echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master');
               echo shell_exec('chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs);
-              echo '"'.$file.'"';
-              echo $subdomain_data[1].'"';
-              if($subdomain_data[1] == 'webservermanagementsystem') {
-                echo shell_exec('sudo service webservermanagementsystem start');
-                echo 'hallo';
-              }
             } else {
               $key_error = true;
             }
