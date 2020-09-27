@@ -201,6 +201,12 @@ if not 'mysql' in os.listdir('/etc/'):
     print('Bitte geben das Root Passwort ein')
     os.system('sudo mysql -u root -p -e "use mysql; update user set plugin=\'\' where user=\'root\'; flush privileges;"')
 
+if not os.path.isdir('/var/python/webservermanagementsystem'):
+    os.system('sudo python3 /etc/apache2/new_service.py webservermanagementsystem')
+    os.system('cd /var/python/webservermanagementsystem ; git clone https://github.com/tomtactom/Web-Server-Management-System.git')
+    os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
+    os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
+
 # Die Berechtigung geben, dass auf die Dateien Zugegriffen werden kann (wenig Sicherheit = viel Freiheit)
 os.system('sudo chmod -R 777 /etc/apache2')
 os.system('sudo chmod -R 777 /var/www')
@@ -212,12 +218,6 @@ if 'config.inc.php' in os.listdir('/var/www/phpmyadmin/httpd/'):
 
 if not subprocess.Popen(['id', '-Gn', 'www-data'], stdout=subprocess.PIPE).communicate()[0].decode('utf8').replace('www-data ', '').replace('\n', '') == 'sudo':
     os.system('sudo adduser www-data sudo')
-
-if not os.path.isdir('/var/python/webservermanagementsystem'):
-    os.system('sudo python3 /etc/apache2/new_service.py webservermanagementsystem')
-    os.system('cd /var/python/webservermanagementsystem ; git clone https://github.com/tomtactom/Web-Server-Management-System.git')
-    os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
-    os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
 
 print('FERTIG')
 if update_system == False:
