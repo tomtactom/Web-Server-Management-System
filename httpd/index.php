@@ -91,7 +91,6 @@ $service_verzeichnis = "/var/python";
 if (is_dir($service_verzeichnis)) {
 	if ($handle_service = opendir($service_verzeichnis)) {
 		while (($file = readdir($handle_service)) !== false) {
-			echo $file;
 			if(file_exists($service_verzeichnis.'/'.$file.'/.data.csv') && is_dir($service_verzeichnis.'/'.$file.'/docs')) {
 				$service_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($service_verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
 
