@@ -32,7 +32,7 @@ if 'www' in os.listdir('/var/'):
             break
         else:
             update_system = False
-            
+
 else:
     update_system = False
 
@@ -92,7 +92,7 @@ if update_system == False:
     os.system('sudo python3 /etc/apache2/new_domain.py ' + domainname + ' ' + mail + ' true')
 
 # Schreibe die phpMyAdmin config Datei
-if not isfile('/etc/apache2/sites-available/phpmyadmin.conf'): # Überprüfe ob PhpMyAdmin schon installiert ist
+if not 'phpmyadmin.conf' in os.listdir('/etc/apache2/sites-available/'):# Überprüfe ob PhpMyAdmin schon installiert ist
     with open('/etc/apache2/sites-available/phpmyadmin.conf', 'w') as file:
         file.write('<VirtualHost *:80>\n')
         file.write('      ServerName phpmyadmin\n')
