@@ -174,7 +174,7 @@ if not 'webdav.load' in os.listdir('/etc/apache/mods-available'):
 os.system('sudo systemctl reload apache2')
 
 # Service-Dienste Pfad anlegen
-if not os.path.isdir('/var/python')
+if not os.path.isdir('/var/python'):
     os.mkdir('/var/python')
 
 if not 'mysql' in os.listdir('/etc/'):
