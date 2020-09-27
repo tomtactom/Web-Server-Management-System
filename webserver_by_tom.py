@@ -24,8 +24,7 @@ if 'www' in os.listdir('/var/'):
     for i in os.listdir('/var/www/'):
         if 'config.' == i[:7]:
             with open('/var/www/' + i + '/.data.csv') as file:
-                data = file.read().split(',')
-                print(data)
+                mail = file.read().split(',')[-2]
 
             domainname = i.replace('config.', '')
             update_system = True
@@ -163,19 +162,19 @@ if update_system == False: # Nur wenn config Subdomain noch nicht existiert
 os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
 
 # enable apache2 modules
-if not 'auth_basic.load' in os.listdir('/etc/apache/mods-available'):
+if not 'auth_basic.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod auth_basic')
 
-if not 'auth_digest.load' in os.listdir('/etc/apache/mods-available'):
+if not 'auth_digest.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod auth_digest')
 
-if not 'autoindex.load' in os.listdir('/etc/apache/mods-available'):
+if not 'autoindex.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod autoindex')
 
-if not 'rewrite.load' in os.listdir('/etc/apache/mods-available'):
+if not 'rewrite.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod rewrite')
 
-if not 'webdav.load' in os.listdir('/etc/apache/mods-available'):
+if not 'webdav.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod webdav')
 
 # Starte Apache neu
