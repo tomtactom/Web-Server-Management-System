@@ -80,11 +80,16 @@ if not 'mysql' in os.listdir('/etc/'):
 if not 'letsencrypt' in os.listdir('/etc/'):
     os.system('sudo apt install certbot letsencrypt python-certbot-apache -y')
 
-#                                                                               Muss noch überprüft werden, ob die Dateien überschrieben werden
-# Kopiere die Python-Dateien in den apache Ordner
-for i in os.listdir('./python_scripts/'):
-	if not i == '.' or not i == '..':
-		copyfile('./python_scripts/' + i, '/etc/apache2/' + i)
+if update_system == True:
+    # Kopiere die Python-Dateien in den apache Ordner
+    for i in os.listdir('/var/python/webservermanagementsystem/docs/python_scripts/'):
+    	if not i == '.' or not i == '..':
+    		copyfile('/var/python/webservermanagementsystem/docs/python_scripts/' + i, '/etc/apache2/' + i)
+else:
+        # Kopiere die Python-Dateien in den apache Ordner
+        for i in os.listdir('./python_scripts/'):
+        	if not i == '.' or not i == '..':
+        		copyfile('./python_scripts/' + i, '/etc/apache2/' + i)
 
 # Lege die Hauptdomain an.
 if update_system == False:
@@ -152,9 +157,11 @@ if update_system == False: # Nur wenn config Subdomain noch nicht existiert
     # config Subdomain anlegen
     os.system('sudo python3 /etc/apache2/new_domain.py config.' + domainname + ' ' + mail + ' true')
 
-# Auch als Update
-# Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
-os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
+    # Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
+    os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
+else: # Update content
+    # Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
+    os.system('sudo cp -r /var/python/webservermanagementsystem/docs/httpd/ /var/www/config.' + domainname + '/')
 
 # enable apache2 modules
 if not 'auth_basic.load' in os.listdir('/etc/apache2/mods-available'):
