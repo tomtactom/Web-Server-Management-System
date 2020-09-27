@@ -23,6 +23,11 @@ if not os.geteuid() == 0:
 if 'www' in os.listdir('/var/'):
     for i in os.listdir('/var/www/'):
         if 'config.' == i[:7]:
+            whith open('/var/www/' + i + '/.data.csv', 'r') as file:
+                data = file.read().split(',')
+                print(data)
+
+            domainname = i.replace('config.', '')
             update_system = True
             print('Then an update will now be carried out.')
             print('##########')
