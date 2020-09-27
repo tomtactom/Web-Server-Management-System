@@ -32,6 +32,9 @@ if 'www' in os.listdir('/var/'):
             break
         else:
             update_system = False
+            
+else:
+    update_system = False
 
 # Überprüfen ob alle Parameter angegeben werden
 if update_system == False:
@@ -52,9 +55,6 @@ if not 'httpd' in os.listdir('./'):
     if update_system == False:
         print('There are still files in the /var/www/ folder. The system has probably already been installed. So that everything works smoothly, please make a backup manually and delete the files. Please delete the /www/ folder.')
         quit()
-
-else:
-    update_system = False
 
 if update_system == False:
     if 'apache2' in os.listdir('/etc/') or 'php' in os.listdir('/etc/'):
