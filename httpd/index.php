@@ -107,7 +107,7 @@ if (is_dir($service_verzeichnis)) {
 						<div class="second_header">
 							<span class="header_item sitepath">Service unter <a href="?directory_content=<?php echo trim($file); ?>&service=1" rel="edit" alt="show directory content" title="Rufe den Verzeichnisinhalt auf, um Dateien Verwalten zu können die in dem Ordner liegen."><?php echo $service_verzeichnis.'/'.$file.'/docs'; ?></a></span><br>
 							<span class="header_item content_created">Service erstellt am: <strong><?php echo $service_data[0]; ?> Uhr</strong></span><br>
-							<span class="header_item autostart"><strong>Autostart: </strong><?php if ($service_data[2] == '1') { echo 'Ja - <a href="?remove_autostart='.trim($file).'" rel="remove" alt="remove autostart" title="Der Service wird beim booten des Servers nicht gestartet. Dies muss nun manuell erfolgen.">Autostart deaktivieren</a>'; } else { echo 'Nein - <a href="?append_autostart='.trim($file).'" rel="add" alt="add autostart" title="Der Service wird beim booten des Servers automatisch gestartet.">Autostart aktivieren</a>'; } ?></span><br>
+							<?php if ('webservermanagementsystem' != $file) { ?><span class="header_item autostart"><strong>Autostart: </strong><?php if ($service_data[2] == '1') { echo 'Ja - <a href="?remove_autostart='.trim($file).'" rel="remove" alt="remove autostart" title="Der Service wird beim booten des Servers nicht gestartet. Dies muss nun manuell erfolgen.">Autostart deaktivieren</a>'; } else { echo 'Nein - <a href="?append_autostart='.trim($file).'" rel="add" alt="add autostart" title="Der Service wird beim booten des Servers automatisch gestartet.">Autostart aktivieren</a>'; } ?></span><br><?php } ?>
 							<span class="header_item check_active_status" >
 								<strong>Status: </strong>
 								<font style="text-transform: capitalize; color:<?php if ($service_status_check == 'active') { echo 'green'; } else { echo 'red'; } ?>"><?php echo $service_status; ?></font> -
@@ -177,11 +177,10 @@ if (is_dir($service_verzeichnis)) {
 						</div>
 						<div class="third_header">
 							<span class="header_item make_manually_backup"><?php if (count(scandir($service_verzeichnis.'/'.$file.'/docs')) > 2) { ?><a href="?make_manually_backup=<?php echo trim($file); ?>&service=1" rel="backup" alt="make manually backup" title="Mache ein manuelles Backup aller Verzeichnisinhalte des ./docs/ Ordners.">Backup machen</a><?php } else { ?><abbr title="In diesem Verzeichnis sind noch keine Dateien vorhanden, sodass auch kein Backup gemacht werden kann." class="prohibited_link">Backup machen</abbr><?php } ?></span>
-							<span class="header_item delete_content"><?php if ($_SERVER['HTTP_HOST'] != $file) { ?><a href="?delete_content=<?php echo trim($file); ?>" rel="delete" alt="delete site" title="Dieser Inhalt, wird mit allen Daten endgültig gelöscht. 𝘼𝙘𝙝𝙩𝙪𝙣𝙜, 𝙙𝙞𝙚𝙨𝙚𝙧 𝙑𝙤𝙧𝙜𝙖𝙣𝙜 𝙠𝙖𝙣𝙣 𝙣𝙞𝙘𝙝𝙩 𝙧ü𝙘𝙠𝙜ä𝙣𝙜𝙞𝙜 𝙜𝙚𝙢𝙖𝙘𝙝𝙩 𝙬𝙚𝙧𝙙𝙚𝙣. Mache sicherheitshalber vorher ein Backup des Inhalts.">Service & Inhalt löschen</a></span>
+							<span class="header_item delete_content"><?php if ('webservermanagementsystem' != $file) { ?><a href="?delete_domain=<?php echo trim($file); ?>" rel="delete" alt="delete site" title="Dieser Service wird mit allen Daten endgültig gelöscht. 𝘼𝙘𝙝𝙩𝙪𝙣𝙜, 𝙙𝙞𝙚𝙨𝙚𝙧 𝙑𝙤𝙧𝙜𝙖𝙣𝙜 𝙠𝙖𝙣𝙣 𝙣𝙞𝙘𝙝𝙩 𝙧ü𝙘𝙠𝙜ä𝙣𝙜𝙞𝙜 𝙜𝙚𝙢𝙖𝙘𝙝𝙩 𝙬𝙚𝙧𝙙𝙚𝙣. Mache sicherheitshalber vorher ein Backup.">Service & Inhalt löschen</a><?php } else { ?><abbr title="Dieser Service kann nicht gelöscht werden, da es sich um die Seite handelt, auf der diese Meldung gerade angezeigt wird. Wenn dieser Service gelöscht werden würde, würde gar nichts mehr funktionieren." class="prohibited_link">Service & Inhalt löschen</abbr><?php } ?></span>
 						</div>
 						</section>
 				<?php
-			}
 		}
 	}
 		closedir($handle_service);

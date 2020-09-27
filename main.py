@@ -176,9 +176,6 @@ if not 'autoindex.load' in os.listdir('/etc/apache2/mods-available'):
 if not 'rewrite.load' in os.listdir('/etc/apache2/mods-available'):
     os.system('sudo a2enmod rewrite')
 
-if not 'webdav.load' in os.listdir('/etc/apache2/mods-available'):
-    os.system('sudo a2enmod webdav')
-
 # Starte Apache neu
 os.system('sudo systemctl reload apache2')
 
