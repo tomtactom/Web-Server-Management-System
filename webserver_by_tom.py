@@ -23,7 +23,7 @@ if not os.geteuid() == 0:
 if 'www' in os.listdir('/var/'):
     for i in os.listdir('/var/www/'):
         if 'config.' == i[:7]:
-            whith open('/var/www/' + i + '/.data.csv', 'r') as file:
+            with open('/var/www/' + i + '/.data.csv') as file:
                 data = file.read().split(',')
                 print(data)
 
