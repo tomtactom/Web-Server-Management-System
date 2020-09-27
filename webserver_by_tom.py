@@ -34,12 +34,15 @@ if 'www' in os.listdir('/var/'):
             update_system = False
 
 # Überprüfen ob alle Parameter angegeben werden
-if not len(sys.argv) >= 3:
-    print('Specify at least one parameters. $python script.py example.com mail@example.com')
-    quit()
+if update_system == False:
+    if not len(sys.argv) >= 3:
+        print('Specify at least one parameters. $python script.py example.com mail@example.com')
+        quit()
+    else:
+        domainname = sys.argv[1]
+        mail = sys.argv[2]
 else:
-    domainname = sys.argv[1]
-    mail = sys.argv[2]
+    pass # Hier muss noch die Variable `domainname` und die Variable `mail` ausgelesen werden (z. B. aus einer .data.csv)
 
 # Überprüfe ob config_sample vorhanden ist
 if not 'httpd' in os.listdir('./'):
