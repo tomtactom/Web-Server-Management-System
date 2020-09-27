@@ -7,7 +7,6 @@ import urllib.request
 import string
 import random
 from shutil import copyfile
-from time import sleep
 import subprocess
 
 # Das Script nur auf Linux laufen lassen
@@ -30,10 +29,6 @@ if 'www' in os.listdir('/var/'):
             domainname = i.replace('config.', '')
             update_system = True
             print('Then an update will now be carried out.')
-            print('##########')
-            print('If not, press Ctrl + C.')
-            print('##########')
-            sleep(4)
             break
         else:
             update_system = False
@@ -158,7 +153,6 @@ if update_system == False: # Nur wenn config Subdomain noch nicht existiert
     # config Subdomain anlegen
     os.system('sudo python3 /etc/apache2/new_domain.py config.' + domainname + ' ' + mail + ' true')
 
-print(domainname)
 # Auch als Update
 # Inhalt aus httpd (config_site) in den httpd Ordner der config Subdomain entpacken
 os.system('sudo cp -r ./httpd/ /var/www/config.' + domainname + '/')
