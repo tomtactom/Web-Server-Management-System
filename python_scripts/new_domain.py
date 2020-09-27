@@ -4,7 +4,6 @@ import csv
 import time
 from os import sys
 from sys import platform
-#test
 
 if not platform == "linux" and not platform == "linux2":
     print('This script only works on Linux systems')
