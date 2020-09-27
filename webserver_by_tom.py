@@ -8,6 +8,7 @@ import string
 import random
 from shutil import copyfile
 from time import sleep
+import subprocess
 
 # Das Script nur auf Linux laufen lassen
 if not platform == "linux" and not platform == "linux2":
@@ -209,7 +210,15 @@ os.system('sudo chown -R www-data:www-data /var/python')
 if 'config.inc.php' in os.listdir('/var/www/phpmyadmin/httpd/'):
     os.system('sudo chmod 755 /var/www/phpmyadmin/httpd/config.inc.php')
 
-os.system('sudo adduser www-data sudo')
+if not subprocess.Popen(['id', '-Gn', 'www-data'], stdout=subprocess.PIPE).communicate()[0].decode('utf8').replace('www-data ', '').replace('\n', '') == 'sudo':
+    os.system('sudo adduser www-data sudo')
+
+if not os.path.isdir('/var/python/webservermanagementsystem'):
+    os.system('sudo python3 /etc/apache2/new_service.py webservermanagementsystem')
+    os.system('cd /var/python/webservermanagementsystem ; git clone https://github.com/tomtactom/Web-Server-Management-System.git')
+    os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
+    os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
+
 print('FERTIG')
 if update_system == False:
     print('')
