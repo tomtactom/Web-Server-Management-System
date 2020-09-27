@@ -26,6 +26,7 @@ if (is_dir($verzeichnis)) {
               echo $file;
               if($file == 'webservermanagementsystem') {
                 echo shell_exec('sudo service webservermanagementsystem start');
+                echo 'hallo';
               }
             } else {
               $key_error = true;
