@@ -23,6 +23,9 @@ if (is_dir($verzeichnis)) {
               echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
               echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master');
               echo shell_exec('chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs);
+              if($subdomain_data[1] == 'webservermanagementsystem') { // Damit das Webservermanagement System auch richtig geupdatet wird.
+                echo shell_exec('sudo python3 '.$verzeichnis.'/'.$docs.'/main.py');
+              }
             } else {
               $key_error = true;
             }
