@@ -44,18 +44,16 @@ if update_system == False:
     else:
         domainname = sys.argv[1]
         mail = sys.argv[2]
-else:
-    pass # Hier muss noch die Variable `domainname` und die Variable `mail` ausgelesen werden (z. B. aus einer .data.csv)
 
-print(os.listdir('./'))
-# Überprüfe ob config_sample vorhanden ist
-if not 'httpd' in os.listdir('./'):
-    print('The directory "config_sample" is missing. Please make sure that it is in the same directory as this file.')
-    quit()
 
-    if update_system == False:
-        print('There are still files in the /var/www/ folder. The system has probably already been installed. So that everything works smoothly, please make a backup manually and delete the files. Please delete the /www/ folder.')
+    # Überprüfe ob config_sample vorhanden ist
+    if not 'httpd' in os.listdir('./'):
+        print('The directory "httpd" is missing. Please make sure that it is in the same directory as this file.')
         quit()
+
+        if update_system == False:
+            print('There are still files in the /var/www/ folder. The system has probably already been installed. So that everything works smoothly, please make a backup manually and delete the files. Please delete the /www/ folder.')
+            quit()
 
 if update_system == False:
     if 'apache2' in os.listdir('/etc/') or 'php' in os.listdir('/etc/'):
