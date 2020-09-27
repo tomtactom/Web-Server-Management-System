@@ -4,6 +4,7 @@ import csv
 import time
 from os import sys
 from sys import platform
+#test
 
 if not platform == "linux" and not platform == "linux2":
     print('This script only works on Linux systems')
@@ -89,4 +90,3 @@ w = csv.writer(open('/var/www/' + domainname + '/.data.csv', 'w'))
 w.writerow(['creation_timestamp', 'domainname', 'mail', 'redirection'])
 w.writerow([time.strftime("%d.%m.%Y %H:%M:%S"), domainname, mail, redirection])
 os.system('sudo chmod 777 /var/www/' + domainname + '/.data.csv')
-
