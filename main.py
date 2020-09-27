@@ -47,6 +47,7 @@ if update_system == False:
 else:
     pass # Hier muss noch die Variable `domainname` und die Variable `mail` ausgelesen werden (z. B. aus einer .data.csv)
 
+print("<br>os.listdir('./')")
 # Überprüfe ob config_sample vorhanden ist
 if not 'httpd' in os.listdir('./'):
     print('The directory "config_sample" is missing. Please make sure that it is in the same directory as this file.')
