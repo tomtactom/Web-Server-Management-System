@@ -19,19 +19,6 @@ if not os.geteuid() == 0:
     print('You need root rights to start the script. Try sudo :)')
     quit()
 
-# Überprüfen ob alle Parameter angegeben werden
-if not len(sys.argv) >= 3:
-    print('Specify at least one parameters. $python script.py example.com mail@example.com')
-    quit()
-else:
-    domainname = sys.argv[1]
-    mail = sys.argv[2]
-
-# Überprüfe ob config_sample vorhanden ist
-if not 'httpd' in os.listdir('./'):
-    print('The directory "config_sample" is missing. Please make sure that it is in the same directory as this file.')
-    quit()
-
 # Überprüfe ob bereits Dateien im vHost Verzeichnisordner sind
 if 'www' in os.listdir('/var/'):
     for i in os.listdir('/var/www/'):
@@ -45,6 +32,19 @@ if 'www' in os.listdir('/var/'):
             break
         else:
             update_system = False
+
+# Überprüfen ob alle Parameter angegeben werden
+if not len(sys.argv) >= 3:
+    print('Specify at least one parameters. $python script.py example.com mail@example.com')
+    quit()
+else:
+    domainname = sys.argv[1]
+    mail = sys.argv[2]
+
+# Überprüfe ob config_sample vorhanden ist
+if not 'httpd' in os.listdir('./'):
+    print('The directory "config_sample" is missing. Please make sure that it is in the same directory as this file.')
+    quit()
 
     if update_system == False:
         print('There are still files in the /var/www/ folder. The system has probably already been installed. So that everything works smoothly, please make a backup manually and delete the files. Please delete the /www/ folder.')
