@@ -294,6 +294,30 @@ $password = "'.trim($_POST['password']).'";
     }
   }
 
+  $verzeichnis = "/var/www";
+  // Von GitHub klonen
+  if (isset($_POST['repository_button'])) {
+    if(isset($_POST['repository']) && isset($_POST['domain_name'])) {
+      $repository = trim($_POST['repository']);
+      echo "repository:".$repository;
+      $domain_name = trim($_POST['domain_name']);
+      echo "domain_name:".$domain_name;
+      $headers = @get_headers($repository);
+      if($headers && strpos( $headers[0], '200')) {
+        shell_exec('cd '.$verzeichnis.'/'.$domain_name.' ; git clone '.$repository);
+        shell_exec('sudo rm -R httpd');
+        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$domain_name);
+        $domain_repository_name = array_reverse(explode("/", str_replace('.git', '', $repository)))[0];
+        rename($verzeichnis.'/'.$domain_name.'/'.$domain_repository_name, $verzeichnis.'/'.$domain_name.'/httpd');
+        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$domain_name);
+        $status = "Das Repository wurde geklont.";
+      }
+      else {
+        $status = "Leider wurde das Repository nicht gefunden";
+      }
+    }
+  }
+
   // Neuen Service erstellen
   if(isset($_POST['newservice'])) {
     if(!empty($_POST['servicename'])) {
@@ -382,25 +406,6 @@ $password = "'.trim($_POST['password']).'";
   if(isset($_GET['delete_content'])) {
       shell_exec('sudo python3 /etc/apache2/remove_service.py '.trim($_GET['delete_content']));
       $msg = 'Der Inhalt und Service wurde unwiderruflich gelöscht';
-  }
-
-  // Von GitHub klonen
-  if (isset($_POST['repository_button'])) {
-    if(isset($_POST['repository']) && isset($_POST['domain_name'])) {
-      $headers = @get_headers($_POST['repository']);
-      if($headers && strpos( $headers[0], '200')) {
-        shell_exec('cd '.$verzeichnis.'/'.$_POST['domain_name'].' ; git clone '.trim($_POST['repository']));
-        shell_exec('sudo rm -R httpd');
-        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$_POST['domain_name']);
-        $repository_name = array_reverse(explode("/", str_replace('.git', '', trim($_POST['repository']))))[0];
-        rename($verzeichnis.'/'.$_POST['domain_name'].'/'.$repository_name, $verzeichnis.'/'.$_POST['domain_name'].'/httpd');
-        shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$_POST['domain_name']);
-        $status = "Das Repository wurde geklont.";
-      }
-      else {
-        $status = "Leider wurde das Repository nicht gefunden";
-      }
-    }
   }
 
   // Nachricht die in Cookie an die nächste Seite übermittelt wurde in $msg abspeichern
