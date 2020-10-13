@@ -286,10 +286,10 @@ $password = "'.trim($_POST['password']).'";
         $repository_name = array_reverse(explode("/", str_replace('.git', '', trim($_POST['service_repository']))))[0];
         rename($service_verzeichnis.'/'.$_POST['service_repository_button'].'/'.$repository_name, $service_verzeichnis.'/'.$_POST['service_repository_button'].'/docs');
         shell_exec('sudo chmod -R 777 '.$service_verzeichnis.'/'.$_POST['service_repository_button']);
-        $_COOKIE['msg'] = "Das Repository ".$repository_name." wurde geklont.";
+        $msg = "Das Repository ".$repository_name." wurde geklont.";
       }
       else {
-        $_COOKIE['msg'] = "Leider wurde das Repository nicht gefunden";
+        $msg = "Leider wurde das Repository nicht gefunden";
       }
     }
   }
@@ -310,10 +310,10 @@ $password = "'.trim($_POST['password']).'";
         $domain_repository_name = array_reverse(explode("/", str_replace('.git', '', $repository)))[0];
         rename($verzeichnis.'/'.$domain_name.'/'.$domain_repository_name, $verzeichnis.'/'.$domain_name.'/httpd');
         shell_exec('sudo chmod -R 777 '.$verzeichnis.'/'.$domain_name);
-        $status = "Das Repository wurde geklont.";
+        $msg = "Das Repository wurde geklont.";
       }
       else {
-        $status = "Leider wurde das Repository nicht gefunden";
+        $msg = "Leider wurde das Repository nicht gefunden";
       }
     }
   }
@@ -427,7 +427,7 @@ $password = "'.trim($_POST['password']).'";
 		<meta name="description" content="Create domains with just one click and manage your server.">
 		<meta name="robots" content="noindex, nofollow">
 		<meta name="author" content="Tom Aschmann">
-		<meta name="copyright" content="©<?php echo date('Y'); ?> Tom Aschmann">
+		<meta name="copyright" content="©2019-<?php echo date('Y'); ?> Tom Aschmann">
 		<meta name="publisher" content="Tom Aschmann">
 		<meta name="msapplication-TileColor" content="#38ada9">
 		<meta name="theme-color" content="#38ada9">
@@ -448,7 +448,7 @@ $password = "'.trim($_POST['password']).'";
 		<link rel="icon" type="image/png" sizes="16x16" href="./assets/icon/favicon-16x16.png">
 		<link rel="manifest" href="./assets/manifest.json">
 		<link rel="stylesheet" type="text/css" href="./assets/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<?php
