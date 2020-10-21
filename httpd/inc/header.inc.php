@@ -3,6 +3,7 @@
   include('./inc/dbaccessdata.inc.php');
   $data['full_domain'] = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
   $data['domainname'] = explode('.', $_SERVER['HTTP_HOST'])[1].'.'.explode('.', $_SERVER['HTTP_HOST'])[2].'.'.explode('.', $_SERVER['HTTP_HOST'])[3];
+  echo $data['domainname'];
 
   // Eigene URL mit und ohne GET-Parameter
   if($_SERVER['SERVER_PORT']) {
