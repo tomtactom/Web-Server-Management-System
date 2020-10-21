@@ -20,8 +20,8 @@ if (is_dir($verzeichnis)) {
         if(is_dir($verzeichnis.'/'.$subdomain_data[1].'/'.$docs.'/.git')) {
             $key = hash('sha512', file_get_contents($verzeichnis.'/'.$subdomain_data[1].'/.data.csv'));
             if(isset($_GET[$key])) {
-              echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
-              echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master');
+              echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master ; git reset --hard main ; git pull origin main</code><br>';
+              echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master ; git reset --hard main ; git pull origin main');
               echo shell_exec('chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs);
               if($subdomain_data[1] == 'webservermanagementsystem') { // Damit das Webservermanagement System auch richtig geupdatet wird.
                 echo shell_exec('sudo service webservermanagementsystem start');
