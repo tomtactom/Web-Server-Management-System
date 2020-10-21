@@ -38,9 +38,10 @@
 													} else {
 														$github_repo_webhook_link = str_replace('.git', '/settings/hooks/new', $github_repo_link);
 													}
+													$copy_value_rand = rand(999999, 9999999);
 													?>
 													<script>
-														function copy() {
+														function copy<?php echo $copy_value_rand; ?>() {
 															  const el = document.createElement('textarea');
 															  el.value = "<?php echo $data['own_url'].'webhook.php?'.$key; ?>";
 															  document.body.appendChild(el);
@@ -50,7 +51,7 @@
 														}
 													</script>
 													<strong>Webhook Link</strong>
-													<a onclick="copy()" href="<?php echo $github_repo_webhook_link; ?>" target="_blank" style="cursor: pointer; display: inline-table; width: 280px;">
+													<a onclick="copy<?php echo $copy_value_rand; ?>()" href="<?php echo $github_repo_webhook_link; ?>" target="_blank" style="cursor: pointer; display: inline-table; width: 280px;">
 														<input type="text" value="<?php echo $data['own_url'].'webhook.php?'.$key; ?>" size="" title="Gebe diesen Link unter <?php echo $github_repo_webhook_link; ?> ein. Empfolen sind die vorgegebenen Einstellungen. Mit klick hierdrauf, wird der Link automatisch kopiert." style="cursor: pointer;" readonly>
 														<small><i>Webhok Link kopieren und Einstellungen öffnen</i></small>
 													</a>
@@ -143,9 +144,10 @@ if (is_dir($service_verzeichnis)) {
 											} else {
 												$github_repo_webhook_link = str_replace('.git', '/settings/hooks/new', $github_repo_link);
 											}
+											$copy_value_rand = rand(999999, 9999999);
 											?>
 											<script>
-												function copy() {
+												function copy<?php echo $copy_value_rand; ?>() {
 														const el = document.createElement('textarea');
 														el.value = "<?php echo $data['own_url'].'webhook.php?'.$key; ?>&service=1";
 														document.body.appendChild(el);
@@ -155,7 +157,7 @@ if (is_dir($service_verzeichnis)) {
 												}
 											</script>
 											<strong>Webhook Link</strong>
-											<a onclick="copy()" href="<?php echo $github_repo_webhook_link; ?>" target="_blank" style="cursor: pointer; display: inline-table; width: 280px;">
+											<a onclick="copy<?php echo $copy_value_rand; ?>()" href="<?php echo $github_repo_webhook_link; ?>" target="_blank" style="cursor: pointer; display: inline-table; width: 280px;">
 												<input type="text" value="<?php echo $data['own_url'].'webhook.php?'.$key; ?>&service=1" title="Gebe diesen Link unter <?php echo $github_repo_webhook_link; ?> ein. Empfohlen sind die vorgegebenen Einstellungen. Mit klick hierdrauf, wird der Link automatisch kopiert." style="cursor: pointer;" readonly>
 												<small><i>Webhok Link kopieren und Einstellungen öffnen</i></small>
 											</a>
