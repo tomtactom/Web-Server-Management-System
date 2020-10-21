@@ -14,8 +14,9 @@ if(isset($_GET['service'])) {
 if (is_dir($verzeichnis)) {
   if ($handle = opendir($verzeichnis)) {
     while (($file = readdir($handle)) !== false) {
-      if ($file != '.' && $file != '..') {
+      if ($file != '.' && $file != '..' && $file != 'phpmyadmin' && $file != 'html') {
       $subdomain_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
+      print_r($subdomain_data);
       if($subdomain_data[1]) {
         if(is_dir($verzeichnis.'/'.$subdomain_data[1].'/'.$docs.'/.git')) {
             $key = hash('sha512', file_get_contents($verzeichnis.'/'.$subdomain_data[1].'/.data.csv'));
