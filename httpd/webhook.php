@@ -18,7 +18,6 @@ if (is_dir($verzeichnis)) {
       $subdomain_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
       if($subdomain_data[1]) {
         if(is_dir($verzeichnis.'/'.$subdomain_data[1].'/'.$docs.'/.git')) {
-            echo $subdomain_data[1].';'.$key.'<br>';
             $key = hash('sha512', file_get_contents($verzeichnis.'/'.$subdomain_data[1].'/.data.csv'));
             if(isset($_GET[$key])) {
               echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
@@ -30,7 +29,7 @@ if (is_dir($verzeichnis)) {
             } else {
               $key_error = true;
             }
-          if($key_error) {
+          if(isset($key_error)) {
               $file_key_error = file_get_contents('key_error.inc.txt');
               file_put_contents('key_error.inc.txt', $file_key_error."Key Error:  ".$client_ip." ".date('s.i.H.d.m.Y').";\n");
             }
