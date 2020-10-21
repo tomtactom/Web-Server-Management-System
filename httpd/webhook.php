@@ -16,9 +16,9 @@ if (is_dir($verzeichnis)) {
     while (($file = readdir($handle)) !== false) {
       if ($file != '.' && $file != '..' && $file != 'phpmyadmin' && $file != 'html') {
       $subdomain_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
-      print_r($subdomain_data);
       if($subdomain_data[1]) {
         if(is_dir($verzeichnis.'/'.$subdomain_data[1].'/'.$docs.'/.git')) {
+            echo $subdomain_data[1].'<br>';
             $key = hash('sha512', file_get_contents($verzeichnis.'/'.$subdomain_data[1].'/.data.csv'));
             if(isset($_GET[$key])) {
               echo '<code>cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master</code>';
