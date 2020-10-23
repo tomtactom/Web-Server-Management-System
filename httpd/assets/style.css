@@ -73,6 +73,9 @@ header nav ul li a {
 header nav ul li a:hover {
     color: var(--hover-header);
 }
+body article {
+  margin-top: 76px;
+}
 
 article {
 	width: 100%;
