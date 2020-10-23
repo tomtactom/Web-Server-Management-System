@@ -9,24 +9,22 @@
 								<a href="" target="_blank"><img src="./assets/icon/youtube-button.png" alt="YouTube Button"></a>
 								<a href="" target="_blank"><img src="./assets/icon/email-button.png" alt="E-Mail Button"></a>
 						</aside>
-						<!--<nav>
+						<nav>
 								<section>
 										<ul>
-												<li><a href="">Test1</a></li>
-												<li><a href="">Test2</a></li>
-												<li><a href="">Test3</a></li>
-												<li><a href="">Test4</a></li>
+												<li><a href="./imprint">Impressum</a></li>
+												<li><a href="./agbs">AGBs</a></li>
+												<li><a href="./privacy-policy">Datenschutzerklärung</a></li>
 										</ul>
 								</section>
 								<section>
 										<ul>
-												<li><a href="">Test5</a></li>
-												<li><a href="">Test6</a></li>
-												<li><a href="">Test7</a></li>
-												<li><a href="">Test8</a></li>
+												<li><a href="./about-the-system">Über das System</a></li>
+												<li><a href="./contact">Kotakt</a></li>
+												<li><a href="https://github.com/tomtactom/Web-Server-Management-System">GitHub</a></li>
 										</ul>
 								</section>
-						</nav>-->
+						</nav>
 						<aside>
 								<address>
 										<p>
