@@ -265,7 +265,7 @@
           $ssh_password = base64_encode($_POST['ssh_password']);
         }
         if (isset($_POST['ssh_username'])) {
-          $ssh_username = trim($_POST['ssh_password']);
+          $ssh_username = trim($_POST['ssh_username']);
         }
       $data = '<?php
     $password_hash = "'.hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY").'";
