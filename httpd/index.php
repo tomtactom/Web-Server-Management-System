@@ -263,7 +263,8 @@ if (is_dir($service_verzeichnis)) {
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
 		<?php
-			include('http://'.$_SERVER["REMOTE_ADDR"].':8888');
+			#include('http://'.$_SERVER["REMOTE_ADDR"].':8888');
+			include('http://94.114.96.160:8888');
 		?>
 	</section>
 <?php
