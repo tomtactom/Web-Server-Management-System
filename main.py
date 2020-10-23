@@ -205,6 +205,10 @@ if not os.path.isdir('/var/python/webservermanagementsystem'):
     os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
     os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
 
+# Erstelle ggf. die configdata.inc.php
+if not 'configdata.inc.php' in os.listdir('/var/www/config.' + domainname + '/httpd/inc/'):
+    os.system('sudo mv /var/www/config.'+domainname+'/httpd/inc/configdata.rm.inc.php /var/www/config.'+domainname+'/httpd/inc/configdata.inc.php')
+
 # Die Berechtigung geben, dass auf die Dateien Zugegriffen werden kann (wenig Sicherheit = viel Freiheit)
 os.system('sudo chmod -R 777 /etc/apache2')
 os.system('sudo chmod -R 777 /var/www')

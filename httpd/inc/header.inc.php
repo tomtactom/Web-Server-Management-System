@@ -28,7 +28,7 @@
       // Überprüft ob das Passwortfeld Ihnalt hat und ob das Fake Captcha leer ist
       if(!empty($_POST['password'])) {
         // Überprüft das eingegebene Passwort mit dem Hash. Wenn dies übereinstimmt wird der Vertretungsplan angezeigt und der COOKIE `authcode` mit dem $authcode_hash für 12 Stunden gesetzt
-        if (hash('sha512', 'd[0<~]PH'.$_POST['password'].'94j|i4BY') === hash('sha512', 'd[0<~]PH'.$password.'94j|i4BY')) {
+        if (hash('sha512', 'd[0<~]PH'.$_POST['password'].'94j|i4BY') === $password_hash) {
           $show_site = true;
           setcookie("authcode", $authcode_hash, time() + (3600 * 12));
           // Wenn es nicht übereinstimmt wird die jeweilige Benachrichtigung angezeigt
@@ -262,8 +262,7 @@
     if (isset($_POST['change_config_password'])) {
       if(isset($_POST['password']) && strlen($_POST['password']) <= 32) {
       $data = '<?php
-$password = "'.trim($_POST['password']).'";
-';
+    $password_hash = "'.hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY").'";';
         file_put_contents('./inc/configdata.inc.php', $data);
         $msg = 'Das Passwort wurde erfolgreich geändert.';
       } else {
