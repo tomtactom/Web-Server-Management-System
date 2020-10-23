@@ -299,9 +299,7 @@ $password = "'.trim($_POST['password']).'";
   if (isset($_POST['repository_button'])) {
     if(isset($_POST['repository']) && isset($_POST['domain_name'])) {
       $repository = trim($_POST['repository']);
-      echo "repository:".$repository;
       $domain_name = trim($_POST['domain_name']);
-      echo "domain_name:".$domain_name;
       $headers = @get_headers($repository);
       if($headers && strpos( $headers[0], '200')) {
         shell_exec('cd '.$verzeichnis.'/'.$domain_name.' ; git clone '.$repository);
