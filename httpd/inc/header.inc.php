@@ -98,6 +98,13 @@
   		}
   	}
 
+    // Nutzer abmelden (alle Cookies löschen und zur Startseite weiterleiten)
+    if (isset($_GET['logout'])) {
+      setcookie ("authcode", "", time() – 3600);
+      setcookie ("mail", "", time() – 3600);
+      header("Location: ".$data['full_domain']);
+    }
+
     // Subdomain löschen
   	if(isset($_GET['delete_domain'])) {
       if ($_SERVER['HTTP_HOST'] != $file) {
@@ -469,6 +476,7 @@
               <li><a href="http://<?php echo $_SERVER['REMOTE_ADDR']; ?>:8888?hostname=localhost&username=<?php echo $ssh_username; ?>&password=<?php echo $ssh_password; ?>&command=clear" target="popup" onclick="javascript:open('', 'popup', 'height=720,width=1280,resizable=yes')">SSH-Konsole</a></li>
               <!--<li><a href="">Dateimanager</a></li>-->
               <li><a href="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname'] ?>" target="_blank">PhpMyAdmin</a></li>
+              <li><a href="?logout">Abmelden</a></li>
           </ul>
       </nav>
 		</header>
