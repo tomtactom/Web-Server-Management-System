@@ -1,8 +1,11 @@
 :root {
-    --hauptfarbe-header: #4C9CF1;
+    --hauptfarbe-header: #38ada9;
     --ramen-header: #444;
     --hover-header: #2262AD;
     --background-header: #fff;
+
+    --domain-background: #fafafa;
+
     --font-footer: #949499;
     --background-footer: #fff;
     --topborder-footer: #949499;
@@ -96,7 +99,7 @@ article section#domains {
 
 article section#domains section {
 	border: 1px solid #bebebe;
-	background: #fafafa;
+	background: var(--domain-background);
 	margin-bottom: 10px;
 }
 article section#domains section div {
@@ -209,7 +212,7 @@ input[type=email] {
 button {
 	border: none;
 	border-radius: 1px;
-	background-color: #fafafa;
+	background-color: transparent;
 	color: #323232;
 	cursor: pointer;
 	font-size: 1.1rem;
