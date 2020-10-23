@@ -100,8 +100,8 @@
 
     // Nutzer abmelden (alle Cookies löschen und zur Startseite weiterleiten)
     if (isset($_GET['logout'])) {
-      setcookie ("authcode", "", time() – 3600);
-      setcookie ("mail", "", time() – 3600);
+      setcookie ("authcode", "", time() - 3600);
+      setcookie ("mail", "", time() - 3600);
       header("Location: ".$data['full_domain']);
     }
 
