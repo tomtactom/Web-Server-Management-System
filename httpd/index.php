@@ -268,7 +268,6 @@ if (is_dir($service_verzeichnis)) {
 	</section>
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
-		<a href="http://<?php echo $_SERVER['REMOTE_ADDR']; ?>:8888?hostname=localhost&username=<?php echo $ssh_username; ?>&password=<?php echo $ssh_password; ?>&command=clear" target="popup" onclick="javascript:open('', 'popup', 'height=720,width=1280,resizable=yes')">zur SSH-Konsole</a>
 	</section>
 <?php
 }
