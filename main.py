@@ -204,7 +204,7 @@ if not os.path.isdir('/var/python/webservermanagementsystem'):
     os.system('cd /var/python/webservermanagementsystem ; git clone https://github.com/tomtactom/Web-Server-Management-System.git')
     os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
     os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
-    os.system('pip3 install webssh')
+    os.system('sudo pip3 install webssh')
 else:
     start_webssh = True
 
