@@ -263,7 +263,7 @@ if (is_dir($service_verzeichnis)) {
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
 		<?php
-			require('./inc/footer.inc.php');
+			require('./inc/webssh.inc.php');
 		?>
 	</section>
 <?php
