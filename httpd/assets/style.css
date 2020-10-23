@@ -1,3 +1,12 @@
+:root {
+    --font-footer: #949499;
+    --background-footer: #fff;
+    --topborder-footer: #949499;
+    --socialicon-footer: 0.4;
+    --socialicon-hover-footer: 0.2;
+    --logofilter-footer: grayscale(100%);
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -183,4 +192,205 @@ details.config_password_details form {
     border-radius: 1.5px;
 		font-size: 1.3rem;
 		max-width: max-content;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.777rem;
+    color: var(--font-footer);
+    line-height: 1.4;
+    position: relative;
+    padding-bottom: 15px;
+    margin-top: 25px;
+    background-color: var(--background-footer);
+    border-top: 4px solid var(--topborder-footer);
+}
+
+footer > img {
+    filter: var(--logofilter-footer);
+    display: block;
+    max-height: 100px;
+    margin: 30px auto;
+    max-width: auto;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+footer section {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left;
+    15px;
+    padding-right: 15px;
+    max-width: 1230px;
+
+
+}
+
+footer > section > aside {
+    text-align: right;
+}
+
+footer > section > aside img {
+    opacity: var(--socialicon-footer);
+}
+
+footer > section > aside img:hover {
+    opacity: var(--socialicon-header-footer);
+}
+
+footer > section > nav {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+footer > section > aside:nth-child(3) {
+    clear: both;
+}
+
+footer > section > aside:nth-child(3) > div {
+    float: right;
+    text-align: left;
+}
+
+footer > section > aside:nth-child(3) > address {
+    float: left;
+    text-align: right;
+}
+
+footer > section > nav > section {
+    padding: 0;
+    width: 41.66667%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+
+footer > section > nav > section:nth-child(2) {
+    padding: 0;
+    width: 41.66667%;
+    margin-left: 16.66667%;
+    float: left;
+    position: relative;
+    text-align: right;
+}
+
+footer section aside address p {
+    font-size: 0.8em;
+}
+
+footer section nav section ul {
+    margin-left: 15px;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+footer section nav section ul li {
+    margin-right: 15px;
+    margin-bottom: 0px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+footer section nav section ul li a {
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 250ms;
+}
+
+@media (max-width: 1260px) {
+    footer section nav section ul li {
+        display: block;
+    }
+
+    footer > img {
+        margin: 30px auto;
+    }
+
+    footer section {
+        width: 970px;
+    }
+}
+
+@media (max-width: 992px) {
+    footer > img {
+        width: 90px;
+    }
+
+    footer section {
+        width: 730px;
+    }
+}
+
+@media (max-width: 748px) {
+    footer {
+        font-size: 0.6rem;
+    }
+
+    footer > img {
+        width: 80px;
+    }
+
+    footer section {
+        width: 380px;
+    }
+
+    footer > section > aside:nth-child(3) {
+        clear: both;
+    }
+}
+
+@media (max-width: 395px) {
+    footer section {
+        width: 280px;
+    }
+}
+
+@media (max-width: 295px) {
+    footer section {
+        width: 180px;
+    }
+}
+
+@media (max-width: 195px) {
+    footer section {
+        width: 100px;
+    }
+}
+
+@media (max-width: 115px) {
+    footer section {
+        width: 50px;
+    }
+}
+
+@media (max-width: 90px) {
+    footer section {
+        width: 25px;
+    }
+
+    footer > img {
+        width: 50px;
+    }
+
+    footer {
+        font-size: 0.44rem;
+    }
+}
+
+@media (max-width: 65px) {
+    footer section {
+        width: 10px;
+    }
+
+    footer > img {
+        width: 50px;
+    }
+
+    footer {
+        font-size: 0.33rem;
+    }
 }

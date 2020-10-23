@@ -425,6 +425,7 @@
 <html lang="de">
 	<head>
 		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Webserver Configuration Panel</title>
 		<meta name="language" content="de">
 		<meta name="date" content="2019-08-16">
