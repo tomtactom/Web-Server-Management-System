@@ -24,6 +24,7 @@ if (is_dir($verzeichnis)) {
               echo shell_exec('cd '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs.' ; git fetch --all ; git reset --hard origin/master ; git pull origin master ; git reset --hard main ; git pull origin main');
               echo shell_exec('chmod -R 777 '.$verzeichnis.'/'.$subdomain_data[1].'/'.$docs);
               if($subdomain_data[1] == 'webservermanagementsystem') { // Damit das Webservermanagement System auch richtig geupdatet wird.
+                echo shell_exec('sudo service webservermanagementsystem stop');
                 echo shell_exec('sudo service webservermanagementsystem start');
               }
             } else {
