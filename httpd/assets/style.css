@@ -18,7 +18,7 @@
 
 html {
 	font-size: 13px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -257,13 +257,13 @@ details.config_password_details form {
 }
 
 footer {
-    font-family: Helvetica, Arial, sans-serif;
     font-size: 0.777rem;
     color: var(--font-footer);
     line-height: 1.4;
     position: relative;
     padding-bottom: 15px;
     margin-top: 25px;
+    margin-bottom: 15px;
     background-color: var(--background-footer);
     border-top: 4px solid var(--topborder-footer);
 }
@@ -286,8 +286,6 @@ footer section {
     15px;
     padding-right: 15px;
     max-width: 1230px;
-
-
 }
 
 footer > section > aside {
