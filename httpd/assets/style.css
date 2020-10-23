@@ -212,7 +212,7 @@ input[type=email] {
 button {
 	border: none;
 	border-radius: 1px;
-	background-color: transparent;
+	background-color: #fafafa;
 	color: #323232;
 	cursor: pointer;
 	font-size: 1.1rem;
@@ -407,10 +407,6 @@ footer section nav section ul li a {
 }
 
 @media only screen and (max-width: 640px) {
-    header {
-        position: absolute;
-    }
-
     header nav:nth-child(2) > a:nth-child(1) {
         display: inline-block;
     }
@@ -449,8 +445,8 @@ footer section nav section ul li a {
 @media only screen and (max-width: 320px) {
     header img {
         margin: 20px 10px;
-        height: auto;
-        max-width: 500px;
+        width: auto;
+        max-height: 45px;
     }
 }
 
@@ -463,8 +459,8 @@ footer section nav section ul li a {
 
     header img {
         margin: 20px 8px;
-        height: auto;
-        max-width: 50%;
+        width: auto;
+        max-height: 50%;
     }
 
     header nav:nth-child(2) > a:nth-child(1) {
