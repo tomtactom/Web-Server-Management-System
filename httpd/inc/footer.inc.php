@@ -4,9 +4,9 @@
 				<section>
 						<aside>
 								<!--<a href="" target="_blank"><img src="./assets/icon/facebook-button.png" alt="Facebook Button"></a>-->
-								<a href="" target="_blank"><img src="./assets/icon/twitter-button.png" alt="Twitter Button"></a>
-								<a href="" target="_blank"><img src="./assets/icon/instagram-button.png" alt="Instagram Button"></a>
-								<a href="" target="_blank"><img src="./assets/icon/youtube-button.png" alt="YouTube Button"></a>
+								<a href="https://twitter.com/tomtactom" target="_blank"><img src="./assets/icon/twitter-button.png" alt="Twitter Button"></a>
+								<a href="https://www.instagram.com/tomtactom/" target="_blank"><img src="./assets/icon/instagram-button.png" alt="Instagram Button"></a>
+								<a href="https://www.youtube.com/channel/UCj2lihpz9Od23D6a9xhgq7A" target="_blank"><img src="./assets/icon/youtube-button.png" alt="YouTube Button"></a>
 								<!--<a href="" target="_blank"><img src="./assets/icon/email-button.png" alt="E-Mail Button"></a>-->
 						</aside>
 						<nav>
