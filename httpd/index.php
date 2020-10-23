@@ -263,8 +263,7 @@ if (is_dir($service_verzeichnis)) {
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
 		<?php
-			#include('./inc/files.inc.php');
-			include('/var/www/config.tom-aschmann.de/httpd/inc/webssh.inc.php');
+			require('./inc/webssh.inc.php');
 		?>
 	</section>
 <?php
