@@ -3,24 +3,22 @@
 				<img src="./assets/icon/logo.png" alt="Logo Grau" href="">
 				<section>
 						<aside>
-								<a href="" target="_blank"><img src="./assets/icon/facebook-button.png" alt="Facebook Button"></a>
+								<!--<a href="" target="_blank"><img src="./assets/icon/facebook-button.png" alt="Facebook Button"></a>-->
 								<a href="" target="_blank"><img src="./assets/icon/twitter-button.png" alt="Twitter Button"></a>
 								<a href="" target="_blank"><img src="./assets/icon/instagram-button.png" alt="Instagram Button"></a>
 								<a href="" target="_blank"><img src="./assets/icon/youtube-button.png" alt="YouTube Button"></a>
-								<a href="" target="_blank"><img src="./assets/icon/email-button.png" alt="E-Mail Button"></a>
+								<!--<a href="" target="_blank"><img src="./assets/icon/email-button.png" alt="E-Mail Button"></a>-->
 						</aside>
 						<nav>
 								<section>
 										<ul>
 												<li><a href="./imprint">Impressum</a></li>
 												<li><a href="./agbs">AGBs</a></li>
-												<li><a href="./privacy-policy">Datenschutzerklärung</a></li>
 										</ul>
 								</section>
 								<section>
 										<ul>
-												<li><a href="./about-the-system">Über das System</a></li>
-												<li><a href="./contact">Kotakt</a></li>
+												<li><a href="./privacy-policy">Datenschutzerklärung</a></li>
 												<li><a href="https://github.com/tomtactom/Web-Server-Management-System">GitHub</a></li>
 										</ul>
 								</section>
@@ -36,6 +34,7 @@
 								</div>
 						</aside>
 				</section>
+				<br><br>
 		</footer>
 	</body>
 </html>
