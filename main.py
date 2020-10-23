@@ -243,5 +243,6 @@ print('Dein System ist nicht gerade sicher und wenn du in deinem Code einen Fehl
 print('####################')
 print('🅲🆁🅴🅳🅸🆃🆂')
 print('Github: https://github.com/tomtactom')
+# Start WebSSH (as service please)
 if start_webssh == True:
     os.system('wssh --fbidhttp=False')
