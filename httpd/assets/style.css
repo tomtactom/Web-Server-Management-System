@@ -4,7 +4,7 @@
     --topborder-footer: #949499;
     --socialicon-footer: 0.4;
     --socialicon-hover-footer: 0.2;
-    --logofilter-footer: grayscale(100%);
+    --logofilter-footer: grayscale(50%);
 }
 
 * {

@@ -1,6 +1,6 @@
 		</article>
 		<footer>
-				<img src="./assets/icon/logo.png" alt="Logo Grau" href="">
+				<img src="./assets/icon/apple-icon-180x180.png" alt="Logo Grau">
 				<section>
 						<aside>
 								<!--<a href="" target="_blank"><img src="./assets/icon/facebook-button.png" alt="Facebook Button"></a>-->
