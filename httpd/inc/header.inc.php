@@ -461,7 +461,16 @@
 			if($show_site == true) {
 		?>
 		<header>
-
+      <img src="./assets/icon/apple-icon-180x180.png">
+      <nav>
+          <a></a>
+          <ul>
+              <li><a href="">Startseite</a></li>
+              <li><a href="http://<?php echo $_SERVER['REMOTE_ADDR']; ?>:8888?hostname=localhost&username=<?php echo $ssh_username; ?>&password=<?php echo $ssh_password; ?>&command=clear" target="popup" onclick="javascript:open('', 'popup', 'height=720,width=1280,resizable=yes')">SSH-Konsole</a></li>
+              <!--<li><a href="">Dateimanager</a></li>-->
+              <li><a href="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname'] ?>" target="_blank">PhpMyAdmin</a></li>
+          </ul>
+      </nav>
 		</header>
 		<?php
 			}
