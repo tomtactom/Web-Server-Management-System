@@ -229,6 +229,12 @@ if (is_dir($service_verzeichnis)) {
 						<label for="inputPassword">
 							<input type="password" id="inputPassword" name="password" title="Passwort zum einloggen der Config Seite" alt="password" placeholder="Passwort der Config Seite" autocomplete="off" maxlength="32" required>
 						</label>
+						<label for="inputSshusername">
+							<input type="text" id="inputSshusername" name="ssh_username" title="Nutzername zum einloggen der SSH-Konsole" alt="ssh username" placeholder="Nutzername des SSH-Nutzers" autocomplete="off" maxlength="32">
+						</label>
+						<label for="inputSshpassword">
+							<input type="password" id="inputSshpassword" name="ssh_password" title="Passwort zum einloggen der SSH-Konsole" alt="ssh password" placeholder="Passwort des SSH-Nutzers" autocomplete="off" maxlength="32">
+						</label>
 						<button type="submit" name="change_config_password" title="Speichere das neue Passwort ab.">Speichern</button>
 					</form>
 				</details>
@@ -262,10 +268,7 @@ if (is_dir($service_verzeichnis)) {
 	</section>
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
-		<?php
-			#include('http://'.$_SERVER["REMOTE_ADDR"].':8888');
-			print file_get_contents("http://tom-aschmann.de:8888");
-		?>
+		<a href="http://<?php echo $_SERVER['REMOTE_ADDR']; ?>:8888?hostname=localhost&username=<?php echo $ssh_username; ?>&password=<?php echo $ssh_password; ?>&command=clear" target="popup" onclick="javascript:open('', 'popup', 'height=720,width=1280,resizable=yes')">zur SSH-Konsole</a>
 	</section>
 <?php
 }

@@ -261,8 +261,16 @@
     // Config Passwort ändern
     if (isset($_POST['change_config_password'])) {
       if(isset($_POST['password']) && strlen($_POST['password']) <= 32) {
+        if (isset($_POST['ssh_password'])) {
+          $ssh_password = base64_encode($_POST['ssh_password']);
+        }
+        if (isset($_POST['ssh_username'])) {
+          $ssh_username = trim($_POST['ssh_password']);
+        }
       $data = '<?php
-    $password_hash = "'.hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY").'";';
+    $password_hash = "'.hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY").'";
+    $ssh_password = "'.$ssh_password.'";
+    $ssh_username = "'.$ssh_username.'";';
         file_put_contents('./inc/configdata.inc.php', $data);
         $msg = 'Das Passwort wurde erfolgreich geändert.';
       } else {
