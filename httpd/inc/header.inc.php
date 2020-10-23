@@ -6,11 +6,11 @@
 
   // Eigene URL mit und ohne GET-Parameter
   if($_SERVER['SERVER_PORT']) {
-	$data['own_url_with_get'] = 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	$data['own_url'] = 'https://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
+	   $data['own_url_with_get'] = 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	   $data['own_url'] = 'https://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
   } else {
-	$data['own_url_with_get'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	$data['own_url'] = 'http://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
+	   $data['own_url_with_get'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	   $data['own_url'] = 'http://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
   }
 
   if(explode('.', $_SERVER['HTTP_HOST'])[0] != 'config') {
