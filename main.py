@@ -204,6 +204,9 @@ if not os.path.isdir('/var/python/webservermanagementsystem'):
     os.system('cd /var/python/webservermanagementsystem ; git clone https://github.com/tomtactom/Web-Server-Management-System.git')
     os.system('sudo rm -R /var/python/webservermanagementsystem/docs')
     os.system('mv /var/python/webservermanagementsystem/Web-Server-Management-System /var/python/webservermanagementsystem/docs/')
+    os.system('pip3 install webssh')
+else:
+    start_webssh = True
 
 # Erstelle ggf. die configdata.inc.php
 if not 'configdata.inc.php' in os.listdir('/var/www/config.' + domainname + '/httpd/inc/'):
@@ -240,3 +243,5 @@ print('Dein System ist nicht gerade sicher und wenn du in deinem Code einen Fehl
 print('####################')
 print('🅲🆁🅴🅳🅸🆃🆂')
 print('Github: https://github.com/tomtactom')
+if start_webssh == True:
+    os.system('wssh --fbidhttp=False')
