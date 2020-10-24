@@ -269,23 +269,23 @@
     if (isset($_POST['change_config_password'])) {
       include('./configdata.inc.php');
       // Config Passwort
-      if(isset($_POST['password'])) {
+      if(!empty($_POST['password'])) {
         $password_hash = hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY");
       }
       // SSH Passwort
-      if (isset($_POST['ssh_password'])) {
+      if (!empty($_POST['ssh_password'])) {
         $ssh_password = base64_encode($_POST['ssh_password']);
       }
       // SSH Nutzername
-      if (isset($_POST['ssh_username'])) {
+      if (!empty($_POST['ssh_username'])) {
         $ssh_username = trim($_POST['ssh_username']);
       }
       // MySQL Passwort
-      if (isset($_POST['mysql_password'])) {
+      if (!empty($_POST['mysql_password'])) {
         $mysql_password = base64_encode($_POST['mysql_password']);
       }
       // MySQL Nutzername
-      if (isset($_POST['mysql_username'])) {
+      if (!empty($_POST['mysql_username'])) {
         $mysql_username = trim($_POST['mysql_username']);
       }
       $data = '<?php
