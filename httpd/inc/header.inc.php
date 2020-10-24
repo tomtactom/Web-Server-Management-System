@@ -292,8 +292,8 @@
   $password_hash = "'.$password_hash.'";
   $ssh_password = "'.$ssh_password.'";
   $ssh_username = "'.$ssh_username.'";
-  $mysql_password = "'..'";
-  $mysql_username = "'..'";';
+  $mysql_password = "'.$mysql_password.'";
+  $mysql_username = "'.$mysql_username.'";';
 
       file_put_contents('./inc/configdata.inc.php', $data);
       $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
