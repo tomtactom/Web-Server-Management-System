@@ -1,16 +1,16 @@
 <?php
   require('./inc/configdata.inc.php');
   include('./inc/dbaccessdata.inc.php');
-  $data['full_domain'] = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
-  $data['domainname'] = explode('.', $_SERVER['HTTP_HOST'])[1].'.'.explode('.', $_SERVER['HTTP_HOST'])[2].'.'.explode('.', $_SERVER['HTTP_HOST'])[3];
+  $data['full_domain'] = explode('<', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'])[0];
+  $data['domainname'] = explode('<', explode('.', $_SERVER['HTTP_HOST'])[1].'.'.explode('.', $_SERVER['HTTP_HOST'])[2].'.'.explode('.', $_SERVER['HTTP_HOST'])[3])[0];
 
   // Eigene URL mit und ohne GET-Parameter
   if($_SERVER['SERVER_PORT']) {
-	   $data['own_url_with_get'] = 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	   $data['own_url'] = 'https://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
+	   $data['own_url_with_get'] = explode('<', 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'][0];
+	   $data['own_url'] = explode('<', 'https://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0])[0];
   } else {
-	   $data['own_url_with_get'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	   $data['own_url'] = 'http://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0];
+	   $data['own_url_with_get'] = explode('<', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])[0];
+	   $data['own_url'] = explode('<', 'http://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0])[0];
   }
 
   if(explode('.', $_SERVER['HTTP_HOST'])[0] != 'config') {
@@ -264,7 +264,7 @@
       file_put_contents('./inc/configdata.inc.php', $data);
       $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
       setcookie('msg', $msg, time() + 60);
-      header('Location: '.$data['own_url']);
+      header('Location: '.explode('<', $data['own_url'])[0]);
     }
   }
 
