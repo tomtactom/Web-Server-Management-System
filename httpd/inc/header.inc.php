@@ -271,7 +271,8 @@
           $mysql_username = trim($_POST['mysql_username']);
         }
       } else {
-        $msg = 'Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. '.mysqli_error();
+        $msg = 'Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. Die anderen einstellungen wurden gespeichert '.mysqli_error();
+        $no_second_msg = true;
       }
       // Schreibe die Daten in die Konfigurationsdatei
       $data = '<?php
@@ -281,7 +282,9 @@
   $mysql_password = "'.$mysql_password.'";
   $mysql_username = "'.$mysql_username.'";';
       file_put_contents('./inc/configdata.inc.php', $data);
-      $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
+      if(!isset($no_second_msg)) {
+        $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
+      }
 
       setcookie('msg', $msg, time() + 60);
       header('Location: '.explode('<', $data['own_url'])[0]);
