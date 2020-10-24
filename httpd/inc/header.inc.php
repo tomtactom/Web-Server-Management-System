@@ -271,7 +271,7 @@
           $mysql_username = trim($_POST['mysql_username']);
         }
       } else {
-        $msg = 'Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. Die anderen einstellungen wurden gespeichert '.mysqli_error();
+        $msg = $check_mysql_username.';'.$check_mysql_password.';Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. Die anderen einstellungen wurden gespeichert '.mysqli_error();
         $no_second_msg = true;
       }
       // Schreibe die Daten in die Konfigurationsdatei
