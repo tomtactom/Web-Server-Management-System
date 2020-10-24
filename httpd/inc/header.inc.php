@@ -474,7 +474,7 @@
                 <form method="post" action="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname']; ?>">
                   <input type="hidden" name="pma_username" value="<?php echo $mysql_username; ?>">
                   <input type="hidden" name="pma_password" value="<?php echo base64_decode($mysql_password); ?>">
-                  <button name="phpmyadmin" value="1">PhpMyAdmin</button>
+                  <button name="server" value="1">PhpMyAdmin</button>
                 </form>
               </li>
               <li><a href="?logout">Abmelden</a></li>
