@@ -200,31 +200,12 @@ if (is_dir($service_verzeichnis)) {
 			</div>
 			<div>
 				<span class="list_element"><strong class="title">Interne IP-Adresse:</strong> <?php echo $_SERVER['SERVER_ADDR']; ?></span>
-				<span class="list_element phpmyadmin_button"><a href="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname'] ?>" rel="external" alt="phpmyadmin" title="MySQL Datenbanken verwalten" target="_blank">phpMyAdmin</a></span>
+				<span class="list_element phpmyadmin_button"><a href="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname'] ?>" rel="external" alt="phpmyadmin" title="MySQL Datenbanken verwalten" target="_blank">PhpMyAdmin</a></span>
 				<span class="list_element"><strong class="title">Externe IP-Adresse:</strong> <?php echo $_SERVER['REMOTE_ADDR']; ?></span>
 			</div>
 			<div class="databases">
-				<details class="database_details">
-					<summary>Datenbank Zugangsdaten</summary>
-					<form method="post">
-						<label for="inputUsername">
-							<input type="text" name="username" id="inputUsername" value="<?php echo $data['mysql_username']; ?>" title="Gebe den root Benutzernamen des MySQL Benutzers ein. Dieser wird dafür verwendet, um andere Benutzer zu erstellen und hier die Datenbanken zu verwalten." alt="mysql username" placeholder="MySQL-Benutzername (root)" maxlength="32" autocomplete="off" required>
-						</label>
-						<label for="inputPassword">
-							<input type="password" name="password" id="inputPassword" title="Gebe das zugehörige MySQL-Passwort ein." alt="mysql password" placeholder="MySQL-Passwort" maxlength="32" autocomplete="off" required>
-						</label>
-						<button type="submit" name="mysql_login" title="Logge dich mit den MySQL Zugangsdaten ein.">Anmelden</button>
-					</form>
-					<?php
-						if (isset($data['mysql_username'])) {
-					?>
-					<form method="post" class="unset db_logout">
-						<button type="submit" name="mysql_logout" title="Lösche die MySQL Zugangsdaten.">Abmelden</button>
-					</form>
-				<?php } ?>
-				</details>
 				<details class="config_password_details">
-					<summary>Config Passwort</summary>
+					<summary>Konfigurationseinstellungen</summary>
 					<form method="post">
 						<label for="inputPassword">
 							<input type="password" id="inputPassword" name="password" title="Passwort zum einloggen der Config Seite" alt="config password" placeholder="Passwort Config Seite" autocomplete="off" maxlength="32">
@@ -241,7 +222,7 @@ if (is_dir($service_verzeichnis)) {
 							<input type="text" id="inputMysqlusername" name="mysql_username" title="Nutzername zum einloggen in PhpMyAdmin" alt="mysql username" placeholder="Nutzername MySQL-Nutzer" autocomplete="off" maxlength="32">
 						</label>
 						<label for="inputMysqlpassword">
-							<input type="text" id="inputMysqlpassword" name="mysql_password" title="Passwort zum einloggen in PhpMyAdmin" alt="mysql passwort" placeholder="Passwort MySQL-Nutzer" autocomplete="off" maxlength="32">
+							<input type="password" id="inputMysqlpassword" name="mysql_password" title="Passwort zum einloggen in PhpMyAdmin" alt="mysql passwort" placeholder="Passwort MySQL-Nutzer" autocomplete="off" maxlength="32">
 						</label>
 						<button type="submit" name="change_config_password" title="Speichere die Zugangsdaten ab.">Speichern</button>
 					</form>

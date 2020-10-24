@@ -231,40 +231,6 @@
       header('Location: '.$data['own_url']);
     }
 
-    // Mit Root in Datenbank einloggen und Zugangsdaten abspeichern bzw. ausloggen; die Datei mit den Zugangsdaten löschen
-    if(isset($_POST['mysql_login'])) {
-      if(isset($_POST['username']) && strlen($_POST['username']) <= 32) {
-          if(isset($_POST['password']) && strlen($_POST['password']) <= 32) {
-            $db_link = mysqli_connect('localhost', $_POST['username'], $_POST['password'], 'phpmyadmin');
-            if ($db_link == true) {
-              $data = '<?php
-  $data["mysql_username"] = "'.$_POST['username'].'";
-  $data["mysql_password"] = "'.$_POST['password'].'";
-';
-              file_put_contents('./inc/dbaccessdata.inc.php', $data);
-              $msg = 'Es wurde sich erfolgreich mit den Zugangsdaten verbunden.';
-            } else {
-              $msg = 'Es konnte keine Verbundung hergestellt werden. Vermutlich ist der Benutzername oder das Passwort falsch oder der Benutzer hat nicht die nötigen Berechtigungen. '.mysqli_error();
-            }
-          } else {
-            $msg = 'Bitte gebe ein gültiges Passwort ein.';
-          }
-      } else {
-        $msg = 'Bitte gebe einen gültigen Benutzernamen ein.';
-      }
-      setcookie('msg', $msg, time() + 60);
-      header('Location: '.explode('<', $data['own_url_with_get'])[0]);
-    } elseif (isset($_POST['mysql_logout'])) {
-      $result = unlink('./inc/dbaccessdata.inc.php');
-      if($result == true) {
-        $msg = 'Du wurdest erfolgreich abgemeldet.';
-      } else {
-        $msg = 'Du konntest leider nicht abgemeldet werden.';
-      }
-      setcookie('msg', $msg, time() + 60);
-      header('Location: '.explode('<', $data['own_url'])[0]);
-    }
-
     // Config Passwort ändern
     if (isset($_POST['change_config_password'])) {
       include('./configdata.inc.php');
@@ -280,21 +246,40 @@
       if (!empty($_POST['ssh_username'])) {
         $ssh_username = trim($_POST['ssh_username']);
       }
-      // MySQL Passwort
-      if (!empty($_POST['mysql_password'])) {
-        $mysql_password = base64_encode($_POST['mysql_password']);
+      // Überprüfe ob die MySQL Zugangsdaten richtig sind
+      if (!empty($_POST['mysql_password']) && !empty($_POST['mysql_username'])) {
+        $check_mysql_password = $_POST['mysql_password'];
+        $check_mysql_username = $_POST['mysql_username'];
+      } elseif (!empty($_POST['mysql_password']) && empty($_POST['mysql_username'])) {
+        $check_mysql_password = $_POST['mysql_password'];
+        $check_mysql_username = $mysql_username;
+      } elseif (empty($_POST['mysql_password']) && !empty($_POST['mysql_username'])) {
+        $check_mysql_password = base64_decode($mysql_password);
+        $check_mysql_username = $_POST['mysql_username'];
+      } else {
+        $check_mysql_password = base64_decode($mysql_password);
+        $check_mysql_username = $mysql_username;
       }
-      // MySQL Nutzername
-      if (!empty($_POST['mysql_username'])) {
-        $mysql_username = trim($_POST['mysql_username']);
+      $db_link = mysqli_connect('localhost', $check_mysql_username, $check_mysql_password, 'phpmyadmin');
+      if ($db_link == true) {
+        // MySQL Passwort
+        if (!empty($_POST['mysql_password'])) {
+          $mysql_password = base64_encode($_POST['mysql_password']);
+        }
+        // MySQL Nutzername
+        if (!empty($_POST['mysql_username'])) {
+          $mysql_username = trim($_POST['mysql_username']);
+        }
+      } else {
+        $msg = 'Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. '.mysqli_error();
       }
+      // Schreibe die Daten in die Konfigurationsdatei
       $data = '<?php
   $password_hash = "'.$password_hash.'";
   $ssh_password = "'.$ssh_password.'";
   $ssh_username = "'.$ssh_username.'";
   $mysql_password = "'.$mysql_password.'";
   $mysql_username = "'.$mysql_username.'";';
-
       file_put_contents('./inc/configdata.inc.php', $data);
       $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
 
