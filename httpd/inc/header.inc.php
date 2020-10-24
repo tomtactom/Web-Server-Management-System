@@ -267,7 +267,7 @@
 
     // Config Passwort ändern
     if (isset($_POST['change_config_password'])) {
-      include('./inc/configdata.inc.php');
+      include('./configdata.inc.php');
       // Config Passwort
       if(isset($_POST['password'])) {
         $password_hash = hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY");
