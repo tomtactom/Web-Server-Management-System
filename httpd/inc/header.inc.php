@@ -246,33 +246,13 @@
       if (!empty($_POST['ssh_username'])) {
         $ssh_username = trim($_POST['ssh_username']);
       }
-      // Überprüfe ob die MySQL Zugangsdaten richtig sind
-      if (!empty($_POST['mysql_password']) && !empty($_POST['mysql_username'])) {
-        $check_mysql_password = $_POST['mysql_password'];
-        $check_mysql_username = $_POST['mysql_username'];
-      } elseif (!empty($_POST['mysql_password']) && empty($_POST['mysql_username'])) {
-        $check_mysql_password = $_POST['mysql_password'];
-        $check_mysql_username = $mysql_username;
-      } elseif (empty($_POST['mysql_password']) && !empty($_POST['mysql_username'])) {
-        $check_mysql_password = base64_decode($mysql_password);
-        $check_mysql_username = $_POST['mysql_username'];
-      } else {
-        $check_mysql_password = base64_decode($mysql_password);
-        $check_mysql_username = $mysql_username;
+      // MySQL Passwort
+      if (!empty($_POST['mysql_password'])) {
+        $mysql_password = base64_encode($_POST['mysql_password']);
       }
-      $db_link = mysqli_connect('localhost', $check_mysql_username, $check_mysql_password, 'phpmyadmin');
-      if ($db_link == true) {
-        // MySQL Passwort
-        if (!empty($_POST['mysql_password'])) {
-          $mysql_password = base64_encode($_POST['mysql_password']);
-        }
-        // MySQL Nutzername
-        if (!empty($_POST['mysql_username'])) {
-          $mysql_username = trim($_POST['mysql_username']);
-        }
-      } else {
-        $msg = $check_mysql_username.';'.$check_mysql_password.';Es konnte sich nicht mit der MySQL-Datenbank verbunden werden. Die anderen einstellungen wurden gespeichert '.mysqli_error();
-        $no_second_msg = true;
+      // MySQL Nutzername
+      if (!empty($_POST['mysql_username'])) {
+        $mysql_username = trim($_POST['mysql_username']);
       }
       // Schreibe die Daten in die Konfigurationsdatei
       $data = '<?php
@@ -282,12 +262,9 @@
   $mysql_password = "'.$mysql_password.'";
   $mysql_username = "'.$mysql_username.'";';
       file_put_contents('./inc/configdata.inc.php', $data);
-      if(!isset($no_second_msg)) {
-        $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
-      }
-
+      $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
       setcookie('msg', $msg, time() + 60);
-      header('Location: '.explode('<', $data['own_url'])[0]);
+      header('Location: '.$data['own_url']);
     }
   }
 
