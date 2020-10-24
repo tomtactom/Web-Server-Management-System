@@ -6,7 +6,7 @@
 
   // Eigene URL mit und ohne GET-Parameter
   if($_SERVER['SERVER_PORT']) {
-	   $data['own_url_with_get'] = explode('<', 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'][0];
+	   $data['own_url_with_get'] = explode('<', 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])[0];
 	   $data['own_url'] = explode('<', 'https://'.$_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'])[0])[0];
   } else {
 	   $data['own_url_with_get'] = explode('<', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])[0];
