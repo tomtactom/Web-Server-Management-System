@@ -269,7 +269,7 @@
   }
 
   // PhpMyAdmin öffnen
-  if ($_POST['phpmyadmin']) {
+  if (isset($_GET['phpmyadmin'])) {
     if (!empty($mysql_password) && !empty($mysql_username)) {
       $_POST['pma_username'] = $mysql_username;
       $_POST['pma_password'] = $mysql_password;
@@ -465,11 +465,7 @@
               <li><a href="">Startseite</a></li>
               <li><a href="http://<?php echo $_SERVER['REMOTE_ADDR']; ?>:8888?hostname=localhost&username=<?php echo $ssh_username; ?>&password=<?php echo $ssh_password; ?>&command=clear" target="popup" onclick="javascript:open('', 'popup', 'height=720,width=1280,resizable=yes')">SSH-Konsole</a></li>
               <!--<li><a href="">Dateimanager</a></li>-->
-              <li>
-                <form method="post">
-                  <button name="phpmyadmin">PhpMyAdmin</button>
-                </form>
-              </li>
+              <li><a href="<?php echo $data['own_url']; ?>?phpmyadmin=1">PhpMyAdmin</a></li>
               <li><a href="?logout">Abmelden</a></li>
           </ul>
       </nav>
