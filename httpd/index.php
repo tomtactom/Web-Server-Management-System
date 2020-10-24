@@ -7,7 +7,7 @@
 		<?php
 		if (is_dir($verzeichnis)) {
 			if ($handle = opendir($verzeichnis)) {
-				while (($file = readdir($handle)) !== false) {
+				while(($file = readdir($handle)) !== false) {
 					if(file_exists($verzeichnis.'/'.$file.'/.data.csv') && is_dir($verzeichnis.'/'.$file.'/httpd')) {
 						$subdomain_data = str_getcsv(explode(';', str_replace("\n", ";", file_get_contents($verzeichnis.'/'.$file.'/.data.csv')))[1], ',');
 						if ($subdomain_data[3] == '1') {
