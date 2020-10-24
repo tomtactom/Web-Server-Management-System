@@ -276,6 +276,9 @@
     }
     $_POST['pma_username'] = $mysql_username;
     $_POST['pma_password'] = $mysql_password;
+    session_start();
+    $_SESSION = $_POST;
+    session_write_close();
     header('Location: '.$_SERVER['REQUEST_SCHEME'].'://'.'phpmyadmin.'.$data['domainname']);
     exit;
   }
