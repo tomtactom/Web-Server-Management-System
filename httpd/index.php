@@ -227,15 +227,23 @@ if (is_dir($service_verzeichnis)) {
 					<summary>Config Passwort</summary>
 					<form method="post">
 						<label for="inputPassword">
-							<input type="password" id="inputPassword" name="password" title="Passwort zum einloggen der Config Seite" alt="password" placeholder="Passwort der Config Seite" autocomplete="off" maxlength="32" required>
+							<input type="password" id="inputPassword" name="password" title="Passwort zum einloggen der Config Seite" alt="config password" placeholder="Passwort Config Seite" autocomplete="off" maxlength="32">
 						</label>
+						<hr>
 						<label for="inputSshusername">
-							<input type="text" id="inputSshusername" name="ssh_username" title="Nutzername zum einloggen der SSH-Konsole" alt="ssh username" placeholder="Nutzername des SSH-Nutzers" autocomplete="off" maxlength="32">
+							<input type="text" id="inputSshusername" name="ssh_username" title="Nutzername zum einloggen der SSH-Konsole" alt="ssh username" placeholder="Nutzername SSH-Nutzer" autocomplete="off" maxlength="32">
 						</label>
 						<label for="inputSshpassword">
-							<input type="password" id="inputSshpassword" name="ssh_password" title="Passwort zum einloggen der SSH-Konsole" alt="ssh password" placeholder="Passwort des SSH-Nutzers" autocomplete="off" maxlength="32">
+							<input type="password" id="inputSshpassword" name="ssh_password" title="Passwort zum einloggen der SSH-Konsole" alt="ssh password" placeholder="Passwort SSH-Nutzer" autocomplete="off" maxlength="32">
 						</label>
-						<button type="submit" name="change_config_password" title="Speichere das neue Passwort ab.">Speichern</button>
+						<hr>
+						<label for="inputMysqlusername">
+							<input type="text" id="inputMysqlusername" name="mysql_username" title="Nutzername zum einloggen in PhpMyAdmin" alt="mysql username" placeholder="Nutzername MySQL-Nutzer" autocomplete="off" maxlength="32">
+						</label>
+						<label for="inputMysqlpassword">
+							<input type="text" id="inputMysqlpassword" name="mysql_password" title="Passwort zum einloggen in PhpMyAdmin" alt="mysql passwort" placeholder="Passwort MySQL-Nutzer" autocomplete="off" maxlength="32">
+						</label>
+						<button type="submit" name="change_config_password" title="Speichere die Zugangsdaten ab.">Speichern</button>
 					</form>
 				</details>
 			</div>

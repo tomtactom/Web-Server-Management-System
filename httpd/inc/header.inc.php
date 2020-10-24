@@ -267,22 +267,37 @@
 
     // Config Passwort ändern
     if (isset($_POST['change_config_password'])) {
-      if(isset($_POST['password']) && strlen($_POST['password']) <= 32) {
-        if (isset($_POST['ssh_password'])) {
-          $ssh_password = base64_encode($_POST['ssh_password']);
-        }
-        if (isset($_POST['ssh_username'])) {
-          $ssh_username = trim($_POST['ssh_username']);
-        }
-      $data = '<?php
-    $password_hash = "'.hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY").'";
-    $ssh_password = "'.$ssh_password.'";
-    $ssh_username = "'.$ssh_username.'";';
-        file_put_contents('./inc/configdata.inc.php', $data);
-        $msg = 'Das Passwort wurde erfolgreich geändert.';
-      } else {
-        $msg = 'Bitte gebe ein gültiges Passwort ein.';
+      include('./inc/configdata.inc.php');
+      // Config Passwort
+      if(isset($_POST['password'])) {
+        $password_hash = hash("sha512", "d[0<~]PH".trim($_POST["password"])."94j|i4BY");
       }
+      // SSH Passwort
+      if (isset($_POST['ssh_password'])) {
+        $ssh_password = base64_encode($_POST['ssh_password']);
+      }
+      // SSH Nutzername
+      if (isset($_POST['ssh_username'])) {
+        $ssh_username = trim($_POST['ssh_username']);
+      }
+      // MySQL Passwort
+      if (isset($_POST['mysql_password'])) {
+        $mysql_password = base64_encode($_POST['mysql_password']);
+      }
+      // MySQL Nutzername
+      if (isset($_POST['mysql_username'])) {
+        $mysql_username = trim($_POST['mysql_username']);
+      }
+      $data = '<?php
+  $password_hash = "'.$password_hash.'";
+  $ssh_password = "'.$ssh_password.'";
+  $ssh_username = "'.$ssh_username.'";
+  $mysql_password = "'..'";
+  $mysql_username = "'..'";';
+
+      file_put_contents('./inc/configdata.inc.php', $data);
+      $msg = 'Das Konfigurationseinstellungen wurde erfolgreich geändert.';
+
       setcookie('msg', $msg, time() + 60);
       header('Location: '.explode('<', $data['own_url'])[0]);
     }
