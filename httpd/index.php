@@ -268,6 +268,7 @@ if (is_dir($service_verzeichnis)) {
 	</section>
 	<section id="main">
 		<?php if (isset($msg_field)) { echo $msg_field; } ?>
+		<iframe src="./inc/tinyfilemanager.php" style="height:100%;width:100%;border:none;"></iframe>
 	</section>
 <?php
 }
