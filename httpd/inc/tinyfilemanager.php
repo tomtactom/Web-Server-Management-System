@@ -3296,7 +3296,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/<?php echo FM_HIGHLIGHTJS_STYLE ?>.min.css">
     <?php endif; ?>
     <style>
-        body { font-size:14px;color:#222;background:#F7F7F7; }
+        body { font-size:14px;color:#222;background:transparent; }
         body.navbar-fixed { margin-top:55px; }
         a:hover, a:visited, a:focus { text-decoration:none !important; }
         * { -webkit-border-radius:0 !important;-moz-border-radius:0 !important;border-radius:0 !important; }
